@@ -1,4 +1,7 @@
 {
   "name": "jelefra.com",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
 }
