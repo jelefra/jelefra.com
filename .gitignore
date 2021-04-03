@@ -1,2 +1,5 @@
 # dependencies
 /node_modules
+
+# macOS Desktop Services Store (used to store custom attributes of its containing folder)
+.DS_Store
