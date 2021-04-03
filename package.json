@@ -1,6 +1,7 @@
 {
   "name": "jelefra.com",
   "version": "0.1.0",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "build": "webpack"
