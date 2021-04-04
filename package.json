@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "lint": "eslint 'src/**/*.js'",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -24,6 +25,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.23.1",
     "html-webpack-plugin": "^5.3.1",
+    "husky": "^6.0.0",
     "prettier": "^2.2.1",
     "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0"
