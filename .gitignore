@@ -6,3 +6,6 @@
 
 # production
 /dist
+
+# husky
+.husky/_
