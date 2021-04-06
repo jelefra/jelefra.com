@@ -9,7 +9,7 @@ module.exports = {
     }),
   ],
   output: {
-    filename: 'main.[contenthash].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
@@ -32,4 +32,7 @@ module.exports = {
     ],
   },
   mode: 'production',
+  optimization: {
+    runtimeChunk: 'single',
+  },
 };
