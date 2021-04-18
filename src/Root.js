@@ -12,6 +12,7 @@ const Root = () => (
         name="description"
         content="Personal website of Jeremy Le François. Where I experiment with all things web development."
       />
+      <link rel="stylesheet" href="main.css" />
     </head>
     <body>
       <div id="root">
