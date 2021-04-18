@@ -8,9 +8,9 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.server.js",
     "dev": "webpack serve --config webpack.dev.js",
-    "start": "webpack serve --config webpack.prod.js",
+    "start": "yarn build && webpack serve --config webpack.prod.js",
     "lint": "eslint 'src/**/*.js'",
     "lint:fix": "yarn lint --fix",
     "prepare": "husky install"
@@ -34,6 +34,7 @@
     "html-webpack-plugin": "^5.3.1",
     "husky": "^6.0.0",
     "prettier": "^2.2.1",
+    "static-site-generator-webpack-plugin": "^3.4.2",
     "style-loader": "^2.0.0",
     "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0",
