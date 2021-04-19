@@ -7,10 +7,10 @@ const Root = () => (
     <head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Jeremy Le François - Web developer in London</title>
+      <title>Jeremy Le François</title>
       <meta
         name="description"
-        content="Personal website of Jeremy Le François. Where I experiment with all things web development."
+        content="Hi, I'm Jeremy Le François, a software engineer based in London. This is where I experiment with all things web development."
       />
       <link rel="stylesheet" href="main.css" />
     </head>
