@@ -8,7 +8,7 @@ module.exports = merge(common, {
   mode: 'production',
   target: 'node',
   output: {
-    filename: 'main.js',
+    filename: 'server.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     libraryTarget: 'umd',

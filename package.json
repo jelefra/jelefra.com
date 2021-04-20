@@ -8,9 +8,11 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.server.js",
+    "build": "yarn build:server && yarn build:client",
+    "build:server": "webpack --config webpack.server.js",
+    "build:client": "webpack --config webpack.client.js",
     "dev": "webpack serve --config webpack.dev.js",
-    "start": "yarn build && webpack serve --config webpack.prod.js",
+    "start": "yarn build:server && webpack serve --config webpack.client.js",
     "lint": "eslint 'src/**/*.js'",
     "lint:fix": "yarn lint --fix",
     "prepare": "husky install"
