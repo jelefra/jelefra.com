@@ -8,7 +8,7 @@ const App = () => (
       <p>I&apos;m a software engineer based in London.</p>
       <p>
         Currently I work at Trainline on delivering fast web pages that are
-        optimised for search engines and helpful to users.
+        optimised for search engines and useful for humans.
       </p>
     </main>
     <footer>
