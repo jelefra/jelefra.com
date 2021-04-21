@@ -1,8 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-import App from './App';
-
-const Root = () => (
+const Root = ({ children }) => (
   <html lang="en">
     <head>
       <meta charSet="utf-8" />
@@ -15,12 +14,14 @@ const Root = () => (
       <link rel="stylesheet" href="main.css" />
     </head>
     <body>
-      <div id="root">
-        <App />
-      </div>
+      <div id="root">{children}</div>
       <script src="main.js" />
     </body>
   </html>
 );
 
 export default Root;
+
+Root.propTypes = {
+  children: PropTypes.any,
+};

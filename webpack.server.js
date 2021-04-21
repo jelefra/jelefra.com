@@ -15,7 +15,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new StaticSiteGeneratorPlugin({
-      paths: '/',
+      paths: ['/', '/404.html'],
     }),
   ],
 });
