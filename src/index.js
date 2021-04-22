@@ -4,7 +4,7 @@ import ReactDOMServer from 'react-dom/server';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { StaticRouter } from 'react-router';
 
-import './styles.css';
+import './styles.scss';
 import App from './App';
 import Root from './Root';
 
