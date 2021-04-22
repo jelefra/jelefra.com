@@ -7,7 +7,6 @@ import PageNotFound from './404';
 const App = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/404" component={PageNotFound} />
     <Route component={PageNotFound} />
   </Switch>
 );
