@@ -28,9 +28,18 @@ body {
     footer {
       margin: 2rem 0;
       text-align: center;
+      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 
       a {
-        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+        color: #4176E8;
+
+        &:link, &:visited, &:focus {
+          text-decoration: none;
+        }
+
+        &:hover, &:active {
+          text-decoration: underline;
+        }
       }
     }
   }
