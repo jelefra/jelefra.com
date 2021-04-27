@@ -11,11 +11,11 @@ const Root = ({ children }) => (
         name="description"
         content="Hi, I'm Jeremy Le François, a software engineer based in London. This is where I experiment with all things web development."
       />
-      <link rel="stylesheet" href="main.css" />
+      <link rel="stylesheet" href="/main.css" />
     </head>
     <body>
       <div id="root">{children}</div>
-      <script src="main.js" />
+      <script src="/main.js" />
     </body>
   </html>
 );
