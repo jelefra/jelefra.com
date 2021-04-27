@@ -15,7 +15,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new StaticSiteGeneratorPlugin({
-      paths: ['/', '/404.html'],
+      paths: ['/', '/404.html', '/tone-generator/'],
     }),
   ],
 });
