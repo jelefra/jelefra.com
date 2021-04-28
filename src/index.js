@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
@@ -9,6 +10,11 @@ import App from './App';
 import Root from './Root';
 
 if (typeof document !== 'undefined') {
+  Sentry.init({
+    dsn:
+      'https://e13cff519b39458fbd9bc4774a5c4bea@o590811.ingest.sentry.io/5740208',
+  });
+
   ReactDOM.render(
     <React.StrictMode>
       <Router>
