@@ -28,7 +28,7 @@ if (typeof document !== 'undefined') {
 const Entry = (locals) => {
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={locals.path} context={{}}>
-      <Root>
+      <Root locals={locals}>
         <App />
       </Root>
     </StaticRouter>

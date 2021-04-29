@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 
 const common = require('./webpack.common.js');
+const locals = require('./src/locals');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -16,6 +17,7 @@ module.exports = merge(common, {
   plugins: [
     new StaticSiteGeneratorPlugin({
       paths: ['/', '/404.html', '/tone-generator/'],
+      locals: locals,
     }),
   ],
 });
