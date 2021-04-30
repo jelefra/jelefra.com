@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/react';
+import { Helmet } from 'react-helmet';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
@@ -7,7 +8,7 @@ import { StaticRouter } from 'react-router';
 
 import './styles.scss';
 import App from './App';
-import Root from './Root';
+import { html } from './html';
 
 if (typeof document !== 'undefined') {
   Sentry.init({
@@ -26,14 +27,13 @@ if (typeof document !== 'undefined') {
 }
 
 const Entry = (locals) => {
-  const html = ReactDOMServer.renderToString(
+  const reactDom = ReactDOMServer.renderToString(
     <StaticRouter location={locals.path} context={{}}>
-      <Root locals={locals}>
-        <App />
-      </Root>
+      <App />
     </StaticRouter>
   );
-  return '<!DOCTYPE html>' + html;
+  const helmetData = Helmet.renderStatic();
+  return html(reactDom, helmetData);
 };
 
 export default Entry;

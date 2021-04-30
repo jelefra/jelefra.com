@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
@@ -17,6 +18,14 @@ const ToneGenerator = () => {
 
   return (
     <div className="container">
+      <Helmet>
+        <title>Tone Generator</title>
+        <meta
+          name="description"
+          content="Generate pure tones of any frequency directly in your browser. Combine
+          up to 5 tones and choose from sine, square, sawtooth, or triangle."
+        />
+      </Helmet>
       <main>
         <Link to="/">← Home</Link>
         <div className="tone-generator">

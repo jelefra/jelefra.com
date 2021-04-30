@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -10,6 +11,9 @@ const PageNotFound = ({ location: { pathname } }) => {
 
   return (
     <div className="container">
+      <Helmet>
+        <title>Page not found</title>
+      </Helmet>
       <main>
         <Link to="/">← Home</Link>
         <p>Page not found</p>

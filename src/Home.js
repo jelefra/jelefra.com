@@ -1,8 +1,17 @@
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
 const Home = () => (
   <div className="container">
+    <Helmet>
+      <title>Jeremy Le François</title>
+      <meta
+        name="description"
+        content="Hi, I'm Jeremy Le François, a software engineer based in London.
+        This is where I experiment with all things web development."
+      />
+    </Helmet>
     <main>
       <p>Hi, my name is</p>
       <h1>Jeremy Le François.</h1>
