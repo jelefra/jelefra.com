@@ -8,7 +8,7 @@ export const html = (reactDom, helmetData) => `<!DOCTYPE html>
   <link rel="stylesheet" href="/main.css" />
 </head>
 <body>
-  <div id="app">${reactDom}</div>
+  <div id="root">${reactDom}</div>
   <script src="/main.js" />
 </body>
 </html>`;
