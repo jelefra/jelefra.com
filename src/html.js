@@ -9,6 +9,6 @@ export const html = (reactDom, helmetData) => `<!DOCTYPE html>
 </head>
 <body>
   <div id="root">${reactDom}</div>
-  <script src="/main.js" />
+  <script src="/main.js"></script>
 </body>
 </html>`;
