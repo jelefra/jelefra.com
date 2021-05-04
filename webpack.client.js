@@ -1,5 +1,7 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 
 const common = require('./webpack.common.js');
 
@@ -14,4 +16,5 @@ module.exports = merge(common, {
   devServer: {
     contentBase: './dist',
   },
+  plugins: [...(process.env.STATS ? [new BundleAnalyzerPlugin()] : [])],
 });

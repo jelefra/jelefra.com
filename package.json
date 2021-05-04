@@ -11,6 +11,7 @@
     "build": "yarn build:server && yarn build:client",
     "build:server": "webpack --config webpack.server.js",
     "build:client": "webpack --config webpack.client.js",
+    "build:stats": "STATS=true yarn build:client",
     "dev": "yarn build:server && webpack serve --config webpack.dev.js",
     "start": "yarn build:server && webpack serve --config webpack.client.js",
     "lint": "eslint 'src/**/*.js'",
@@ -46,6 +47,7 @@
     "sass-loader": "^11.0.1",
     "static-site-generator-webpack-plugin": "^3.4.2",
     "webpack": "^5.30.0",
+    "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
