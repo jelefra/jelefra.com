@@ -7,11 +7,11 @@ const ToneGenerator = () => {
   let stopTone;
 
   if (typeof document !== 'undefined') {
-    const audioContext = new window.AudioContext();
     const [oscillator, setOscillator] = useState(null);
 
     playTone = () => {
       if (!oscillator) {
+        const audioContext = new window.AudioContext();
         const oscillatorNode = audioContext.createOscillator();
         oscillatorNode.frequency.value = 440;
         oscillatorNode.connect(audioContext.destination);
