@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import React from 'react';
 
 const ToneGenerator = () => {
   let playTone;
@@ -8,12 +8,25 @@ const ToneGenerator = () => {
 
   if (typeof document !== 'undefined') {
     const audioContext = new window.AudioContext();
-    let oscillator = audioContext.createOscillator();
-    oscillator.frequency.value = 440;
-    oscillator.start();
+    const [oscillator, setOscillator] = useState(null);
 
-    playTone = () => oscillator.connect(audioContext.destination);
-    stopTone = () => oscillator.disconnect(audioContext.destination);
+    playTone = () => {
+      if (!oscillator) {
+        const oscillatorNode = audioContext.createOscillator();
+        oscillatorNode.frequency.value = 440;
+        oscillatorNode.connect(audioContext.destination);
+        oscillatorNode.start();
+
+        setOscillator(oscillatorNode);
+      }
+    };
+
+    stopTone = () => {
+      if (oscillator) {
+        oscillator.stop();
+        setOscillator(null);
+      }
+    };
   }
 
   return (
