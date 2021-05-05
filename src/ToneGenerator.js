@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const ToneGenerator = () => {
   const [oscillator, setOscillator] = useState(null);
+
+  useEffect(() => {
+    return function cleanup() {
+      stopTone();
+    };
+  });
 
   const playTone = () => {
     if (!oscillator) {
