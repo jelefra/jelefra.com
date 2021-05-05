@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ToneGenerator = () => {
   const [oscillator, setOscillator] = useState(null);
+  const [audioContext, setAudioContext] = useState(null);
 
   useEffect(() => {
     return function cleanup() {
@@ -11,9 +12,11 @@ const ToneGenerator = () => {
     };
   });
 
+  const initialiseAudioContext = () =>
+    !audioContext && setAudioContext(new window.AudioContext());
+
   const playTone = () => {
-    if (!oscillator) {
-      const audioContext = new window.AudioContext();
+    if (audioContext && !oscillator) {
       const oscillatorNode = audioContext.createOscillator();
       oscillatorNode.frequency.value = 440;
       oscillatorNode.connect(audioContext.destination);
@@ -43,6 +46,7 @@ const ToneGenerator = () => {
       <main>
         <Link to="/">← Home</Link>
         <div className="tone-generator">
+          <button onClick={initialiseAudioContext}>Initialise</button>
           <button onClick={playTone}>Play</button>
           <button onClick={stopTone}>Stop</button>
         </div>
