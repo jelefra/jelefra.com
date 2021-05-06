@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 const ToneGenerator = () => {
   const [audioContext, setAudioContext] = useState(null);
   const [gainNode, setGainNode] = useState(null);
+  const [stereoPannerNode, setStereoPannerNode] = useState(null);
   const [oscillatorNode, setOscillatorNode] = useState(null);
 
   const defaultGainValue = 1;
+  const defaultPanValue = 0;
 
   useEffect(() => {
     return function cleanup() {
@@ -27,17 +29,35 @@ const ToneGenerator = () => {
     }
   };
 
-  const handleChange = (event) => {
+  const createStereoPannerNode = () => {
+    if (audioContext && !stereoPannerNode) {
+      const stereoPannerNode = audioContext.createStereoPanner();
+      stereoPannerNode.pan.value = defaultPanValue;
+
+      setStereoPannerNode(stereoPannerNode);
+    }
+  };
+
+  const handleChangeGain = (event) => {
     if (gainNode) {
       gainNode.gain.value = Number(event.target.value);
     }
   };
 
+  const handleChangeStereoPanner = (event) => {
+    if (stereoPannerNode) {
+      stereoPannerNode.pan.value = Number(event.target.value);
+    }
+  };
+
   const playTone = () => {
-    if (gainNode && !oscillatorNode) {
+    if (gainNode && stereoPannerNode && !oscillatorNode) {
       const oscillatorNode = audioContext.createOscillator();
       oscillatorNode.frequency.value = 440;
-      oscillatorNode.connect(gainNode).connect(audioContext.destination);
+      oscillatorNode
+        .connect(gainNode)
+        .connect(stereoPannerNode)
+        .connect(audioContext.destination);
       oscillatorNode.start();
 
       setOscillatorNode(oscillatorNode);
@@ -68,6 +88,9 @@ const ToneGenerator = () => {
             Initialise audio context
           </button>
           <button onClick={createGainNode}>Create gain node</button>
+          <button onClick={createStereoPannerNode}>
+            Create stereo panner node
+          </button>
           <button onClick={playTone}>Play</button>
           <button onClick={stopTone}>Stop</button>
           <input
@@ -76,7 +99,15 @@ const ToneGenerator = () => {
             max="2"
             defaultValue={defaultGainValue}
             step="0.02"
-            onChange={handleChange}
+            onChange={handleChangeGain}
+          />
+          <input
+            type="range"
+            min="-1"
+            max="1"
+            defaultValue={defaultPanValue}
+            step="0.01"
+            onChange={handleChangeStereoPanner}
           />
         </div>
       </main>
