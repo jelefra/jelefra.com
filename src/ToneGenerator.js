@@ -50,6 +50,8 @@ const ToneGenerator = () => {
     return stereoPannerNode;
   };
 
+  const togglePlay = () => (oscillatorNode ? stopTone() : playTone());
+
   const playTone = () => {
     const audioCtx = audioContext || initialiseAudioContext();
     const gain = gainNode || createGainNode(audioCtx);
@@ -88,8 +90,9 @@ const ToneGenerator = () => {
       <main>
         <Link to="/">← Home</Link>
         <div className="tone-generator">
-          <button onClick={playTone}>Play</button>
-          <button onClick={stopTone}>Stop</button>
+          <button onClick={togglePlay}>
+            {oscillatorNode ? 'Stop' : 'Play'}
+          </button>
           <input
             type="range"
             min="0"
