@@ -17,27 +17,6 @@ const ToneGenerator = () => {
     };
   });
 
-  const initialiseAudioContext = () =>
-    !audioContext && setAudioContext(new window.AudioContext());
-
-  const createGainNode = () => {
-    if (audioContext && !gainNode) {
-      const gainNode = audioContext.createGain();
-      gainNode.gain.value = defaultGainValue;
-
-      setGainNode(gainNode);
-    }
-  };
-
-  const createStereoPannerNode = () => {
-    if (audioContext && !stereoPannerNode) {
-      const stereoPannerNode = audioContext.createStereoPanner();
-      stereoPannerNode.pan.value = defaultPanValue;
-
-      setStereoPannerNode(stereoPannerNode);
-    }
-  };
-
   const handleChangeGain = (event) => {
     if (gainNode) {
       gainNode.gain.value = Number(event.target.value);
@@ -50,14 +29,39 @@ const ToneGenerator = () => {
     }
   };
 
+  const initialiseAudioContext = () => {
+    const audioContext = new window.AudioContext();
+    setAudioContext(audioContext);
+    return audioContext;
+  };
+
+  const createGainNode = (audioContext) => {
+    const gainNode = audioContext.createGain();
+    gainNode.gain.value = defaultGainValue;
+    setGainNode(gainNode);
+    return gainNode;
+  };
+
+  const createStereoPannerNode = (audioContext) => {
+    const stereoPannerNode = audioContext.createStereoPanner();
+    stereoPannerNode.pan.value = defaultPanValue;
+
+    setStereoPannerNode(stereoPannerNode);
+    return stereoPannerNode;
+  };
+
   const playTone = () => {
-    if (gainNode && stereoPannerNode && !oscillatorNode) {
-      const oscillatorNode = audioContext.createOscillator();
+    const audioCtx = audioContext || initialiseAudioContext();
+    const gain = gainNode || createGainNode(audioCtx);
+    const stereoPanner = stereoPannerNode || createStereoPannerNode(audioCtx);
+
+    if (!oscillatorNode) {
+      const oscillatorNode = audioCtx.createOscillator();
       oscillatorNode.frequency.value = 440;
       oscillatorNode
-        .connect(gainNode)
-        .connect(stereoPannerNode)
-        .connect(audioContext.destination);
+        .connect(gain)
+        .connect(stereoPanner)
+        .connect(audioCtx.destination);
       oscillatorNode.start();
 
       setOscillatorNode(oscillatorNode);
@@ -84,13 +88,6 @@ const ToneGenerator = () => {
       <main>
         <Link to="/">← Home</Link>
         <div className="tone-generator">
-          <button onClick={initialiseAudioContext}>
-            Initialise audio context
-          </button>
-          <button onClick={createGainNode}>Create gain node</button>
-          <button onClick={createStereoPannerNode}>
-            Create stereo panner node
-          </button>
           <button onClick={playTone}>Play</button>
           <button onClick={stopTone}>Stop</button>
           <input
