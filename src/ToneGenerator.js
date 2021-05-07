@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import {
+  faPlayCircle,
+  faStopCircle,
+} from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
@@ -90,9 +95,11 @@ const ToneGenerator = () => {
       <main>
         <Link to="/">← Home</Link>
         <div className="tone-generator">
-          <button onClick={togglePlay}>
-            {oscillatorNode ? 'Stop' : 'Play'}
-          </button>
+          <FontAwesomeIcon
+            onClick={togglePlay}
+            icon={oscillatorNode ? faStopCircle : faPlayCircle}
+            size="3x"
+          />
           <input
             type="range"
             min="0"
