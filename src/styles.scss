@@ -53,7 +53,19 @@ body {
       }
 
       .tone-generator {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
         margin-top: 2rem;
+
+        > * {
+          grid-column: 1 / span 1;
+          justify-self: center;
+          margin: 10px 0;
+        }
+
+        input {
+          width: 150px;
+        }
       }
     }
 
