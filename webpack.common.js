@@ -27,7 +27,15 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new CopyPlugin({
-      patterns: [{ from: 'src/robots.txt', to: 'robots.txt' }],
+      patterns: [
+        { from: 'static/robots.txt', to: 'robots.txt' },
+        { from: 'static/manifest.webmanifest', to: 'manifest.webmanifest' },
+        { from: 'static/favicon.ico', to: 'favicon.ico' },
+        { from: 'static/icon.svg', to: 'icon.svg' },
+        { from: 'static/icon-192.png', to: 'icon-192.png' },
+        { from: 'static/icon-512.png', to: 'icon-512.png' },
+        { from: 'static/apple-touch-icon.png', to: 'apple-touch-icon.png' },
+      ],
     }),
   ],
 };
