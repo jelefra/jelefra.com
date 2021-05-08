@@ -6,6 +6,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 const ToneGenerator = () => {
   const [audioContext, setAudioContext] = useState(null);
@@ -100,6 +101,7 @@ const ToneGenerator = () => {
             icon={oscillatorNode ? faStopCircle : faPlayCircle}
             size="3x"
           />
+          <FontAwesomeIcon icon={faVolumeUp} />
           <input
             type="range"
             min="0"
@@ -108,6 +110,7 @@ const ToneGenerator = () => {
             step="0.02"
             onChange={handleChangeGain}
           />
+          <span>L</span>
           <input
             type="range"
             min="-1"
@@ -116,6 +119,7 @@ const ToneGenerator = () => {
             step="0.01"
             onChange={handleChangeStereoPanner}
           />
+          <span>R</span>
         </div>
       </main>
     </div>
