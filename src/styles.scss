@@ -71,6 +71,16 @@ body {
           width: 75%;
         }
 
+        label {
+          clip: rect(0 0 0 0);
+          clip-path: inset(50%);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          white-space: nowrap;
+          width: 1px;
+        }
+
         .fa-volume-up, span:first-of-type {
           grid-column: 1 / span 1;
           justify-self: end;

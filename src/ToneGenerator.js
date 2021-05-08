@@ -102,7 +102,9 @@ const ToneGenerator = () => {
             size="3x"
           />
           <FontAwesomeIcon icon={faVolumeUp} />
+          <label htmlFor="gain">Change volume</label>
           <input
+            id="gain"
             type="range"
             min="0"
             max="2"
@@ -111,7 +113,9 @@ const ToneGenerator = () => {
             onChange={handleChangeGain}
           />
           <span>L</span>
+          <label htmlFor="balance">Change balance</label>
           <input
+            id="balance"
             type="range"
             min="-1"
             max="1"
