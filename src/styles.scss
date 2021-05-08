@@ -26,6 +26,15 @@ body {
       }
     }
 
+    .svg-inline--fa {
+      height: 1em;
+      vertical-align: -0.125em;
+
+      &.fa-3x {
+        font-size: 3em;
+      }
+    }
+
     main {
       p {
         margin: 0.5rem 0;
