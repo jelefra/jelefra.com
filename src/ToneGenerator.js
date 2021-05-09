@@ -112,77 +112,106 @@ const ToneGenerator = () => {
       </Helmet>
       <main>
         <Link to="/">← Home</Link>
-        <div className="tone-generator">
+        <div className="tone-generator" style={{ marginTop: '2rem' }}>
           <FontAwesomeIcon
             onClick={togglePlay}
             icon={oscillatorNode ? faStopCircle : faPlayCircle}
             size="3x"
+            style={{ display: 'block', margin: '0 auto' }}
           />
-          <label htmlFor="frequency">Change frequency</label>
-          <input
-            id="frequency"
-            type="range"
-            min="1"
-            max="5000"
-            value={frequency}
-            step="1"
-            onChange={handleChangeFrequency}
-          />
-          <FontAwesomeIcon icon={faVolumeUp} />
-          <label htmlFor="gain">Change volume</label>
-          <input
-            id="gain"
-            type="range"
-            min="0"
-            max="2"
-            value={gain}
-            step="0.02"
-            onChange={handleChangeGain}
-          />
-          <span>L</span>
-          <label htmlFor="balance">Change balance</label>
-          <input
-            id="balance"
-            type="range"
-            min="-1"
-            max="1"
-            value={pan}
-            step="0.01"
-            onChange={handleChangeStereoPanner}
-          />
-          <span>R</span>
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            margin: '0.5em 0',
-          }}
-        >
-          <button
-            onClick={() => onClickWaveform('sine')}
-            style={{ margin: '0 0.5em' }}
+          <div style={{ margin: '1em auto' }}>
+            <label htmlFor="frequency">Change frequency</label>
+            <input
+              id="frequency"
+              type="range"
+              min="1"
+              max="5000"
+              value={frequency}
+              step="1"
+              onChange={handleChangeFrequency}
+              style={{ display: 'block', margin: '0 auto', width: '300px' }}
+            />
+          </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 175px 1fr',
+              margin: '1em 0',
+            }}
           >
-            Sine
-          </button>
-          <button
-            onClick={() => onClickWaveform('square')}
-            style={{ margin: '0 0.5em' }}
+            <FontAwesomeIcon
+              icon={faVolumeUp}
+              style={{ gridColumn: '1 / span 1', justifySelf: 'end' }}
+            />
+            <label htmlFor="gain">Change volume</label>
+            <input
+              id="gain"
+              type="range"
+              min="0"
+              max="2"
+              value={gain}
+              step="0.02"
+              onChange={handleChangeGain}
+              style={{ gridColumn: '2 / span 1', margin: '0 10px' }}
+            />
+          </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 175px 1fr',
+              margin: '1em 0',
+            }}
           >
-            Square
-          </button>
-          <button
-            onClick={() => onClickWaveform('triangle')}
-            style={{ margin: '0 0.5em' }}
+            <span style={{ gridColumn: '1 / span 1', justifySelf: 'end' }}>
+              L
+            </span>
+            <label htmlFor="balance">Change balance</label>
+            <input
+              id="balance"
+              type="range"
+              min="-1"
+              max="1"
+              value={pan}
+              step="0.01"
+              onChange={handleChangeStereoPanner}
+              style={{ gridColumn: '2 / span 1', margin: '0 10px' }}
+            />
+            <span style={{ gridColumn: '3 / span 1', justifySelf: 'start' }}>
+              R
+            </span>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              margin: '0.5em 0',
+            }}
           >
-            Triangle
-          </button>
-          <button
-            onClick={() => onClickWaveform('sawtooth')}
-            style={{ margin: '0 0.5em' }}
-          >
-            Sawtooth
-          </button>
+            <button
+              onClick={() => onClickWaveform('sine')}
+              style={{ margin: '0 0.5em' }}
+            >
+              Sine
+            </button>
+            <button
+              onClick={() => onClickWaveform('square')}
+              style={{ margin: '0 0.5em' }}
+            >
+              Square
+            </button>
+            <button
+              onClick={() => onClickWaveform('triangle')}
+              style={{ margin: '0 0.5em' }}
+            >
+              Triangle
+            </button>
+            <button
+              onClick={() => onClickWaveform('sawtooth')}
+              style={{ margin: '0 0.5em' }}
+            >
+              Sawtooth
+            </button>
+          </div>
         </div>
       </main>
     </div>

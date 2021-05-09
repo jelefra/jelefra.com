@@ -53,28 +53,6 @@ body {
       }
 
       .tone-generator {
-        display: grid;
-        grid-template-columns: 1fr 200px 1fr;
-        margin-top: 2rem;
-
-        > * {
-          grid-column: 1 / span 1;
-          justify-self: center;
-          margin: 10px 0;
-        }
-
-        .fa-play-circle, .fa-stop-circle, input {
-          grid-column: 2 / span 1;
-        }
-
-        input:first-of-type {
-          grid-column: 1 / span 3;
-        }
-
-        input {
-          width: 75%;
-        }
-
         label {
           clip: rect(0 0 0 0);
           clip-path: inset(50%);
@@ -83,16 +61,6 @@ body {
           position: absolute;
           white-space: nowrap;
           width: 1px;
-        }
-
-        .fa-volume-up, span:first-of-type {
-          grid-column: 1 / span 1;
-          justify-self: end;
-        }
-
-        span:last-of-type {
-          grid-column: 3 / span 1;
-          justify-self: start;
         }
       }
     }
