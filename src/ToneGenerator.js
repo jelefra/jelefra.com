@@ -8,6 +8,8 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
+const formatGain = (number) => `${Math.trunc(100 * number)}%`;
+
 const ToneGenerator = () => {
   const [audioContext, setAudioContext] = useState(null);
   const [gainNode, setGainNode] = useState(null);
@@ -146,6 +148,7 @@ const ToneGenerator = () => {
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 175px 1fr',
+              alignItems: 'center',
               margin: '1em 0',
             }}
           >
@@ -160,15 +163,23 @@ const ToneGenerator = () => {
               min="0"
               max="2"
               value={gain}
-              step="0.02"
+              step="0.01"
               onChange={handleChangeGain}
               style={{ gridColumn: '2 / span 1', margin: '0 10px' }}
             />
+            <span
+              style={{
+                fontVariantNumeric: 'tabular-nums',
+              }}
+            >
+              {formatGain(gain)}
+            </span>
           </div>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 175px 1fr',
+              alignItems: 'center',
               margin: '1em 0',
             }}
           >
