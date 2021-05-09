@@ -9,13 +9,15 @@ import { Link } from 'react-router-dom';
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 const ToneGenerator = () => {
+  const defaultFrequencyValue = 440;
+  const defaultGainValue = 1;
+  const defaultPanValue = 0;
+
   const [audioContext, setAudioContext] = useState(null);
   const [gainNode, setGainNode] = useState(null);
   const [stereoPannerNode, setStereoPannerNode] = useState(null);
   const [oscillatorNode, setOscillatorNode] = useState(null);
-
-  const defaultGainValue = 1;
-  const defaultPanValue = 0;
+  const [frequency, setFrequency] = useState(defaultFrequencyValue);
 
   useEffect(() => {
     return function cleanup() {
@@ -33,6 +35,13 @@ const ToneGenerator = () => {
     if (stereoPannerNode) {
       stereoPannerNode.pan.value = Number(event.target.value);
     }
+  };
+
+  const handleChangeFrequency = (event) => {
+    if (oscillatorNode) {
+      oscillatorNode.frequency.value = frequency;
+    }
+    setFrequency(Number(event.target.value));
   };
 
   const initialiseAudioContext = () => {
@@ -65,7 +74,7 @@ const ToneGenerator = () => {
 
     if (!oscillatorNode) {
       const oscillatorNode = audioCtx.createOscillator();
-      oscillatorNode.frequency.value = 440;
+      oscillatorNode.frequency.value = frequency;
       oscillatorNode
         .connect(gain)
         .connect(stereoPanner)
@@ -100,6 +109,16 @@ const ToneGenerator = () => {
             onClick={togglePlay}
             icon={oscillatorNode ? faStopCircle : faPlayCircle}
             size="3x"
+          />
+          <label htmlFor="frequency">Change frequency</label>
+          <input
+            id="frequency"
+            type="range"
+            min="1"
+            max="5000"
+            value={frequency}
+            step="1"
+            onChange={handleChangeFrequency}
           />
           <FontAwesomeIcon icon={faVolumeUp} />
           <label htmlFor="gain">Change volume</label>

@@ -67,6 +67,10 @@ body {
           grid-column: 2 / span 1;
         }
 
+        input:first-of-type {
+          grid-column: 1 / span 3;
+        }
+
         input {
           width: 75%;
         }
