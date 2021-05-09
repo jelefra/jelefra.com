@@ -190,23 +190,27 @@ const ToneGenerator = () => {
             <button
               onClick={() => onClickWaveform('sine')}
               style={{ margin: '0 0.5em' }}
+              className={waveform === 'sine' ? 'active' : null}
             >
               Sine
             </button>
             <button
               onClick={() => onClickWaveform('square')}
               style={{ margin: '0 0.5em' }}
+              className={waveform === 'square' ? 'active' : null}
             >
               Square
             </button>
             <button
               onClick={() => onClickWaveform('triangle')}
               style={{ margin: '0 0.5em' }}
+              className={waveform === 'triangle' ? 'active' : null}
             >
               Triangle
             </button>
             <button
               onClick={() => onClickWaveform('sawtooth')}
+              className={waveform === 'sawtooth' ? 'active' : null}
               style={{ margin: '0 0.5em' }}
             >
               Sawtooth

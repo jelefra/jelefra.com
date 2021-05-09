@@ -62,6 +62,25 @@ body {
           white-space: nowrap;
           width: 1px;
         }
+
+        button {
+          font-family: inherit;
+          font-size: 1em;
+          padding: 0.6em;
+          background-color: WhiteSmoke;
+          border: 1px solid WhiteSmoke;
+          border-radius: 10px;
+          cursor:pointer;
+
+          &:hover:not(.active) {
+            border: 1px solid DarkGrey;
+          }
+
+          &.active {
+            background-color: DarkGrey;
+            border: 1px solid DarkGrey;
+          }
+        }
       }
     }
 
