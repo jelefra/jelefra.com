@@ -21,7 +21,7 @@ const ToneGenerator = () => {
     return function cleanup() {
       stopTone();
     };
-  });
+  }, [oscillatorNode]);
 
   const handleChangeGain = (event) => {
     if (gainNode) {
