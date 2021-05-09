@@ -119,7 +119,7 @@ const ToneGenerator = () => {
             size="3x"
             style={{ display: 'block', margin: '0 auto' }}
           />
-          <div style={{ margin: '1em auto' }}>
+          <div style={{ margin: '1.5em auto' }}>
             <label htmlFor="frequency">Change frequency</label>
             <input
               id="frequency"
@@ -131,6 +131,16 @@ const ToneGenerator = () => {
               onChange={handleChangeFrequency}
               style={{ display: 'block', margin: '0 auto', width: '300px' }}
             />
+            <span
+              style={{
+                display: 'block',
+                textAlign: 'center',
+                margin: '0.3em auto 1.5em',
+                fontVariantNumeric: 'tabular-nums',
+              }}
+            >
+              {frequency} Hz
+            </span>
           </div>
           <div
             style={{
