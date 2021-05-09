@@ -9,17 +9,14 @@ import { Link } from 'react-router-dom';
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 const ToneGenerator = () => {
-  const defaultFrequencyValue = 440;
-  const defaultGainValue = 1;
-  const defaultPanValue = 0;
-  const defaultWaveform = 'sine';
-
   const [audioContext, setAudioContext] = useState(null);
   const [gainNode, setGainNode] = useState(null);
+  const [gain, setGain] = useState(1);
   const [stereoPannerNode, setStereoPannerNode] = useState(null);
+  const [pan, setPan] = useState(0);
   const [oscillatorNode, setOscillatorNode] = useState(null);
-  const [frequency, setFrequency] = useState(defaultFrequencyValue);
-  const [waveform, setWaveform] = useState(defaultWaveform);
+  const [frequency, setFrequency] = useState(440);
+  const [waveform, setWaveform] = useState('sine');
 
   useEffect(() => {
     return function cleanup() {
@@ -31,12 +28,14 @@ const ToneGenerator = () => {
     if (gainNode) {
       gainNode.gain.value = Number(event.target.value);
     }
+    setGain(event.target.value);
   };
 
   const handleChangeStereoPanner = (event) => {
     if (stereoPannerNode) {
       stereoPannerNode.pan.value = Number(event.target.value);
     }
+    setPan(event.target.value);
   };
 
   const handleChangeFrequency = (event) => {
@@ -54,15 +53,14 @@ const ToneGenerator = () => {
 
   const createGainNode = (audioContext) => {
     const gainNode = audioContext.createGain();
-    gainNode.gain.value = defaultGainValue;
+    gainNode.gain.value = gain;
     setGainNode(gainNode);
     return gainNode;
   };
 
   const createStereoPannerNode = (audioContext) => {
     const stereoPannerNode = audioContext.createStereoPanner();
-    stereoPannerNode.pan.value = defaultPanValue;
-
+    stereoPannerNode.pan.value = pan;
     setStereoPannerNode(stereoPannerNode);
     return stereoPannerNode;
   };
@@ -137,7 +135,7 @@ const ToneGenerator = () => {
             type="range"
             min="0"
             max="2"
-            defaultValue={defaultGainValue}
+            value={gain}
             step="0.02"
             onChange={handleChangeGain}
           />
@@ -148,7 +146,7 @@ const ToneGenerator = () => {
             type="range"
             min="-1"
             max="1"
-            defaultValue={defaultPanValue}
+            value={pan}
             step="0.01"
             onChange={handleChangeStereoPanner}
           />
