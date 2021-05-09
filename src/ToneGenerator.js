@@ -12,12 +12,14 @@ const ToneGenerator = () => {
   const defaultFrequencyValue = 440;
   const defaultGainValue = 1;
   const defaultPanValue = 0;
+  const defaultWaveform = 'sine';
 
   const [audioContext, setAudioContext] = useState(null);
   const [gainNode, setGainNode] = useState(null);
   const [stereoPannerNode, setStereoPannerNode] = useState(null);
   const [oscillatorNode, setOscillatorNode] = useState(null);
   const [frequency, setFrequency] = useState(defaultFrequencyValue);
+  const [waveform, setWaveform] = useState(defaultWaveform);
 
   useEffect(() => {
     return function cleanup() {
@@ -65,6 +67,13 @@ const ToneGenerator = () => {
     return stereoPannerNode;
   };
 
+  const onClickWaveform = (value) => {
+    if (oscillatorNode) {
+      oscillatorNode.type = value;
+    }
+    setWaveform(value);
+  };
+
   const togglePlay = () => (oscillatorNode ? stopTone() : playTone());
 
   const playTone = () => {
@@ -75,6 +84,7 @@ const ToneGenerator = () => {
     if (!oscillatorNode) {
       const oscillatorNode = audioCtx.createOscillator();
       oscillatorNode.frequency.value = frequency;
+      oscillatorNode.type = waveform;
       oscillatorNode
         .connect(gain)
         .connect(stereoPanner)
@@ -143,6 +153,38 @@ const ToneGenerator = () => {
             onChange={handleChangeStereoPanner}
           />
           <span>R</span>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            margin: '0.5em 0',
+          }}
+        >
+          <button
+            onClick={() => onClickWaveform('sine')}
+            style={{ margin: '0 0.5em' }}
+          >
+            Sine
+          </button>
+          <button
+            onClick={() => onClickWaveform('square')}
+            style={{ margin: '0 0.5em' }}
+          >
+            Square
+          </button>
+          <button
+            onClick={() => onClickWaveform('triangle')}
+            style={{ margin: '0 0.5em' }}
+          >
+            Triangle
+          </button>
+          <button
+            onClick={() => onClickWaveform('sawtooth')}
+            style={{ margin: '0 0.5em' }}
+          >
+            Sawtooth
+          </button>
         </div>
       </main>
     </div>
