@@ -102,6 +102,8 @@ const ToneGenerator = () => {
     }
   };
 
+  const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
+
   return (
     <div className="container">
       <Helmet>
@@ -149,7 +151,7 @@ const ToneGenerator = () => {
               display: 'grid',
               gridTemplateColumns: '1fr 175px 1fr',
               alignItems: 'center',
-              margin: '1em 0',
+              margin: '1.5em 0',
             }}
           >
             <FontAwesomeIcon
@@ -180,10 +182,18 @@ const ToneGenerator = () => {
               display: 'grid',
               gridTemplateColumns: '1fr 175px 1fr',
               alignItems: 'center',
-              margin: '1em 0',
+              margin: '1.5em 0',
             }}
           >
             <span style={{ gridColumn: '1 / span 1', justifySelf: 'end' }}>
+              <span
+                style={{
+                  marginRight: '0.3em',
+                  fontVariantNumeric: 'tabular-nums',
+                }}
+              >
+                {pan <= 0 ? '100%' : displayBalance(pan)}
+              </span>
               L
             </span>
             <label htmlFor="balance">Change balance</label>
@@ -199,6 +209,14 @@ const ToneGenerator = () => {
             />
             <span style={{ gridColumn: '3 / span 1', justifySelf: 'start' }}>
               R
+              <span
+                style={{
+                  marginLeft: '0.3em',
+                  fontVariantNumeric: 'tabular-nums',
+                }}
+              >
+                {pan >= 0 ? '100%' : displayBalance(-pan)}
+              </span>
             </span>
           </div>
           <div
