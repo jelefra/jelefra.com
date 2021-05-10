@@ -45,7 +45,7 @@ const ToneGenerator = () => {
 
   const handleChangeFrequency = (event) => {
     if (oscillatorNode) {
-      oscillatorNode.frequency.value = frequency;
+      oscillatorNode.frequency.value = event.target.value;
     }
     setFrequency(Number(event.target.value));
   };
