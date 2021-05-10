@@ -130,7 +130,7 @@ const ToneGenerator = () => {
             onClick={togglePlay}
             icon={oscillatorNode ? faStopCircle : faPlayCircle}
             size="3x"
-            style={{ display: 'block', margin: '0 auto' }}
+            style={{ display: 'block', margin: '0 auto', cursor: 'pointer' }}
           />
           <div style={{ margin: '1.5em auto' }}>
             <div
