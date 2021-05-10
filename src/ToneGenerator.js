@@ -20,6 +20,9 @@ const ToneGenerator = () => {
   const [frequency, setFrequency] = useState(440);
   const [waveform, setWaveform] = useState('sine');
 
+  const minFrequency = 1;
+  const maxFrequency = 5000;
+
   useEffect(() => {
     return function cleanup() {
       stopTone();
@@ -124,22 +127,42 @@ const ToneGenerator = () => {
             style={{ display: 'block', margin: '0 auto' }}
           />
           <div style={{ margin: '1.5em auto' }}>
-            <span
+            <div
               style={{
-                display: 'block',
-                textAlign: 'center',
-                margin: '1.5em auto 0.3em',
-                fontVariantNumeric: 'tabular-nums',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                margin: '0.5em 0',
               }}
             >
-              {frequency} Hz
-            </span>
+              <label htmlFor="hertz">Frequency in hertz</label>
+              <input
+                type="number"
+                id="hertz"
+                min={minFrequency}
+                max={maxFrequency}
+                value={frequency}
+                step="1"
+                onChange={handleChangeFrequency}
+                style={{
+                  border: '1px solid DarkGrey',
+                  borderRadius: '4px',
+                  fontFamily: 'inherit',
+                  fontSize: '1.5em',
+                  fontVariantNumeric: 'tabular-nums',
+                  width: '85px',
+                  marginRight: '6px',
+                  textAlign: 'right',
+                }}
+              />
+              <span> Hz</span>
+            </div>
             <label htmlFor="frequency">Change frequency</label>
             <input
               id="frequency"
               type="range"
-              min="1"
-              max="5000"
+              min={minFrequency}
+              max={maxFrequency}
               value={frequency}
               step="1"
               onChange={handleChangeFrequency}
