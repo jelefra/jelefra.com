@@ -81,7 +81,7 @@ const ToneGenerator = () => {
 
   const playTone = () => {
     const audioCtx = audioContext || initialiseAudioContext();
-    const gain = gainNode || createGainNode(audioCtx);
+    const gainNodeInstance = gainNode || createGainNode(audioCtx);
     const stereoPanner = stereoPannerNode || createStereoPannerNode(audioCtx);
 
     if (!oscillatorNode) {
@@ -89,10 +89,14 @@ const ToneGenerator = () => {
       oscillatorNode.frequency.value = frequency;
       oscillatorNode.type = waveform;
       oscillatorNode
-        .connect(gain)
+        .connect(gainNodeInstance)
         .connect(stereoPanner)
         .connect(audioCtx.destination);
+
+      // Increase gain gradually to prevent clicking sound
+      gainNodeInstance.gain.value = 0;
       oscillatorNode.start();
+      gainNodeInstance.gain.setTargetAtTime(gain, audioCtx.currentTime, 0.3);
 
       setOscillatorNode(oscillatorNode);
     }
@@ -100,8 +104,10 @@ const ToneGenerator = () => {
 
   const stopTone = () => {
     if (oscillatorNode) {
-      oscillatorNode.stop();
+      // Decrease gain gradually to prevent clicking sound
+      gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.01);
       setOscillatorNode(null);
+      setGainNode(null);
     }
   };
 
