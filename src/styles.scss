@@ -68,7 +68,15 @@ body {
           cursor: pointer;
         }
 
-        button {
+        > button {
+          color: DimGrey;
+
+          &:hover {
+            color: DarkGrey;
+          }
+        }
+
+        .waveform button {
           font-family: inherit;
           font-size: 0.9em;
           padding: 0.5em;
@@ -84,6 +92,17 @@ body {
           &.active {
             background-color: DarkGrey;
             border: 1px solid DarkGrey;
+          }
+        }
+
+        .frequency button {
+          color: DimGrey;
+          border: none;
+          background: transparent;
+          margin: 0 5px;
+
+          &:hover {
+            color: DarkGrey;
           }
         }
       }

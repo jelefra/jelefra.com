@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import {
+  faCaretLeft,
+  faCaretRight,
+  faVolumeUp,
+} from '@fortawesome/free-solid-svg-icons';
+import {
   faPlayCircle,
   faStopCircle,
 } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
 
@@ -50,6 +54,13 @@ const ToneGenerator = () => {
       oscillatorNode.frequency.value = event.target.value;
     }
     setFrequency(Number(event.target.value));
+  };
+
+  const handleChangeIncrementFrequency = (increment) => {
+    if (oscillatorNode) {
+      oscillatorNode.frequency.value += increment;
+    }
+    setFrequency((frequency) => frequency + increment);
   };
 
   const initialiseAudioContext = () => {
@@ -141,7 +152,7 @@ const ToneGenerator = () => {
               size="3x"
             />
           </button>
-          <div style={{ margin: '1.5em auto' }}>
+          <div className="frequency" style={{ margin: '1.5em auto' }}>
             <div
               style={{
                 display: 'flex',
@@ -150,6 +161,12 @@ const ToneGenerator = () => {
                 margin: '0.5em 0',
               }}
             >
+              <button
+                aria-label="Decrement frequency by 1"
+                onClick={() => handleChangeIncrementFrequency(-1)}
+              >
+                <FontAwesomeIcon icon={faCaretLeft} size="3x" />
+              </button>
               <label htmlFor="hertz">Frequency in hertz</label>
               <input
                 type="number"
@@ -171,6 +188,12 @@ const ToneGenerator = () => {
                 }}
               />
               <span> Hz</span>
+              <button
+                aria-label="Increment frequency by 1"
+                onClick={() => handleChangeIncrementFrequency(1)}
+              >
+                <FontAwesomeIcon icon={faCaretRight} size="3x" />
+              </button>
             </div>
             <label htmlFor="frequency">Change frequency</label>
             <input
@@ -194,7 +217,11 @@ const ToneGenerator = () => {
           >
             <FontAwesomeIcon
               icon={faVolumeUp}
-              style={{ gridColumn: '1 / span 1', justifySelf: 'end' }}
+              style={{
+                gridColumn: '1 / span 1',
+                justifySelf: 'end',
+                color: 'DimGrey',
+              }}
             />
             <label htmlFor="gain">Change volume</label>
             <input
@@ -258,6 +285,7 @@ const ToneGenerator = () => {
             </span>
           </div>
           <div
+            className="waveform"
             style={{
               display: 'flex',
               justifyContent: 'center',
