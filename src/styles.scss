@@ -64,13 +64,18 @@ body {
         }
 
         button {
+          font-size: 1em;
+          cursor: pointer;
+        }
+
+        button {
           font-family: inherit;
           font-size: 0.9em;
           padding: 0.5em;
           background-color: WhiteSmoke;
           border: 1px solid WhiteSmoke;
           border-radius: 10px;
-          cursor:pointer;
+          cursor: pointer;
 
           &:hover:not(.active) {
             border: 1px solid DarkGrey;

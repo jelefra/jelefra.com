@@ -126,12 +126,21 @@ const ToneGenerator = () => {
       <main>
         <Link to="/">← Home</Link>
         <div className="tone-generator" style={{ marginTop: '2rem' }}>
-          <FontAwesomeIcon
+          <button
+            aria-label={oscillatorNode ? 'Stop' : 'Play'}
             onClick={togglePlay}
-            icon={oscillatorNode ? faStopCircle : faPlayCircle}
-            size="3x"
-            style={{ display: 'block', margin: '0 auto', cursor: 'pointer' }}
-          />
+            style={{
+              display: 'block',
+              border: 'none',
+              background: 'transparent',
+              margin: '0 auto',
+            }}
+          >
+            <FontAwesomeIcon
+              icon={oscillatorNode ? faStopCircle : faPlayCircle}
+              size="3x"
+            />
+          </button>
           <div style={{ margin: '1.5em auto' }}>
             <div
               style={{
