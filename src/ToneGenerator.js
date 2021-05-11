@@ -16,6 +16,23 @@ const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
 
 const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
 
+const Warning = () => (
+  <>
+    <h2
+      style={{
+        marginTop: '4rem',
+      }}
+    >
+      High volume can cause hearing loss
+    </h2>
+    <p>
+      Listening at a high volume for a long time may damage your hearing. Use
+      with caution.
+    </p>
+    <p>A high volume may also damage your speakers.</p>
+  </>
+);
+
 const ToneGenerator = () => {
   const [audioContext, setAudioContext] = useState(null);
   const [gainNode, setGainNode] = useState(null);
@@ -322,6 +339,7 @@ const ToneGenerator = () => {
             </button>
           </div>
         </div>
+        <Warning />
       </main>
     </div>
   );
