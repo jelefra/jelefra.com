@@ -8,7 +8,9 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
-const formatGain = (number) => `${Math.trunc(100 * number)}%`;
+const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
+
+const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
 
 const ToneGenerator = () => {
   const [audioContext, setAudioContext] = useState(null);
@@ -110,8 +112,6 @@ const ToneGenerator = () => {
       setGainNode(null);
     }
   };
-
-  const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
 
   return (
     <div className="container">
