@@ -13,7 +13,7 @@ const formatGain = (number) => `${Math.trunc(100 * number)}%`;
 const ToneGenerator = () => {
   const [audioContext, setAudioContext] = useState(null);
   const [gainNode, setGainNode] = useState(null);
-  const [gain, setGain] = useState(1);
+  const [gain, setGain] = useState(0.7);
   const [stereoPannerNode, setStereoPannerNode] = useState(null);
   const [pan, setPan] = useState(0);
   const [oscillatorNode, setOscillatorNode] = useState(null);
@@ -192,7 +192,7 @@ const ToneGenerator = () => {
               id="gain"
               type="range"
               min="0"
-              max="2"
+              max="1"
               value={gain}
               step="0.01"
               onChange={handleChangeGain}
