@@ -191,6 +191,7 @@ const ToneGenerator = () => {
       <main>
         <Link to="/">← Home</Link>
         <div className="tone-generator" style={{ marginTop: '2rem' }}>
+          <h1 style={{ marginBottom: '3rem' }}>Tone generator</h1>
           <button
             aria-label={oscillatorNode ? 'Stop' : 'Play'}
             onClick={togglePlay}
