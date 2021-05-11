@@ -29,6 +29,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'static/robots.txt', to: 'robots.txt' },
+        { from: 'static/sitemap.xml', to: 'sitemap.xml' },
         { from: 'static/manifest.webmanifest', to: 'manifest.webmanifest' },
         { from: 'static/favicon.ico', to: 'favicon.ico' },
         { from: 'static/icon.svg', to: 'icon.svg' },
