@@ -53,6 +53,11 @@ body {
       }
 
       .tone-generator {
+        button {
+          font-size: 1em;
+          cursor: pointer;
+        }
+
         label {
           clip: rect(0 0 0 0);
           clip-path: inset(50%);
@@ -63,46 +68,80 @@ body {
           width: 1px;
         }
 
-        button {
-          font-size: 1em;
-          cursor: pointer;
-        }
+        .widget {
+          > button {
+            color: DimGrey;
 
-        > button {
-          color: DimGrey;
+            &:hover {
+              color: DarkGrey;
+            }
+          }
 
-          &:hover {
-            color: DarkGrey;
+          .waveform button {
+            font-family: inherit;
+            font-size: 0.9em;
+            padding: 0.5em;
+            background-color: WhiteSmoke;
+            border: 1px solid WhiteSmoke;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover:not(.active) {
+              border: 1px solid DarkGrey;
+            }
+
+            &.active {
+              background-color: DarkGrey;
+              border: 1px solid DarkGrey;
+            }
+          }
+
+          .frequency button {
+            color: DimGrey;
+            border: none;
+            background: transparent;
+            margin: 0 5px;
+
+            &:hover {
+              color: DarkGrey;
+            }
           }
         }
 
-        .waveform button {
-          font-family: inherit;
-          font-size: 0.9em;
-          padding: 0.5em;
-          background-color: WhiteSmoke;
-          border: 1px solid WhiteSmoke;
-          border-radius: 10px;
-          cursor: pointer;
+        form {
+          max-width: 500px;
+          margin: 1.5em auto;
 
-          &:hover:not(.active) {
-            border: 1px solid DarkGrey;
+          textarea {
+            border: 1px solid grey;
+            padding: 5px;
+            margin-bottom: 10px;
           }
 
-          &.active {
-            background-color: DarkGrey;
-            border: 1px solid DarkGrey;
+          textarea {
+            width: 100%;
+            min-height: 100px;
+            resize: vertical;
           }
-        }
 
-        .frequency button {
-          color: DimGrey;
-          border: none;
-          background: transparent;
-          margin: 0 5px;
+          ::placeholder {
+            color: grey;
+          }
 
-          &:hover {
-            color: DarkGrey;
+          button {
+            width: fit-content;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: block;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            background-color: DimGrey;
+
+            &:hover {
+              color: black;
+              background-color: DarkGrey;
+            }
           }
         }
       }
