@@ -11,10 +11,12 @@ import App from './App';
 import { html } from './html';
 
 if (typeof document !== 'undefined') {
-  Sentry.init({
-    dsn:
-      'https://e13cff519b39458fbd9bc4774a5c4bea@o590811.ingest.sentry.io/5740208',
-  });
+  if (window.location.href.includes('jelefra.com')) {
+    Sentry.init({
+      dsn:
+        'https://e13cff519b39458fbd9bc4774a5c4bea@o590811.ingest.sentry.io/5740208',
+    });
+  }
 
   ReactDOM.render(
     <React.StrictMode>
