@@ -77,25 +77,6 @@ body {
             }
           }
 
-          .waveform button {
-            font-family: inherit;
-            font-size: 0.9em;
-            padding: 0.5em;
-            background-color: WhiteSmoke;
-            border: 1px solid WhiteSmoke;
-            border-radius: 10px;
-            cursor: pointer;
-
-            &:hover:not(.active) {
-              border: 1px solid DarkGrey;
-            }
-
-            &.active {
-              background-color: DarkGrey;
-              border: 1px solid DarkGrey;
-            }
-          }
-
           .frequency button {
             color: DimGrey;
             border: none;
@@ -148,6 +129,25 @@ body {
 
             &::-moz-range-track {
               @include track
+            }
+          }
+
+          .waveform button {
+            font-family: inherit;
+            font-size: 0.9em;
+            padding: 0.5em;
+            background-color: WhiteSmoke;
+            border: 1px solid WhiteSmoke;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover:not(.active) {
+              border: 1px solid DarkGrey;
+            }
+
+            &.active {
+              background-color: DarkGrey;
+              border: 1px solid DarkGrey;
             }
           }
         }
