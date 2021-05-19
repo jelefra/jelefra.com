@@ -232,7 +232,7 @@ const ToneGenerator = () => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  margin: '0.5em 0',
+                  marginBottom: '1em',
                 }}
               >
                 <button
@@ -287,7 +287,7 @@ const ToneGenerator = () => {
                 display: 'grid',
                 gridTemplateColumns: '1fr 175px 1fr',
                 alignItems: 'center',
-                margin: '1.5em 0',
+                margin: '1.85em 0 1.5em',
               }}
             >
               <FontAwesomeIcon
