@@ -11,9 +11,13 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { faItunesNote } from '@fortawesome/free-brands-svg-icons';
+
+import Modal from '../Modal';
+import Notes from './Notes';
+import frequencies from './frequencies';
 
 const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
-
 const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
 
 const Warning = () => (
@@ -60,6 +64,11 @@ const Instructions = () => (
         Select from &apos;Sine&apos;, &apos;Square&apos;, &apos;Triangle&apos;,
         and &apos;Sawtooth&apos; to change the waveform.
       </li>
+      <li>
+        Press <FontAwesomeIcon icon={faItunesNote} /> to set the frequency to a
+        given note between C<sub>0</sub> and B<sub>8</sub>. Frequencies assume A
+        <sub>4</sub> = 440 Hz.
+      </li>
     </ul>
   </>
 );
@@ -97,6 +106,7 @@ const ToneGenerator = () => {
   const [oscillatorNode, setOscillatorNode] = useState(null);
   const [frequency, setFrequency] = useState(440);
   const [waveform, setWaveform] = useState('sine');
+  const [modalVisibility, setModalVisibility] = useState(false);
 
   const minFrequency = 1;
   const maxFrequency = 5000;
@@ -128,11 +138,23 @@ const ToneGenerator = () => {
     setFrequency(Number(event.target.value));
   };
 
+  const handleChangeNote = (note) => {
+    if (oscillatorNode) {
+      oscillatorNode.frequency.value = frequencies[note];
+    }
+    setFrequency(frequencies[note]);
+    handleModalVisibility();
+  };
+
   const handleChangeIncrementFrequency = (increment) => {
     if (oscillatorNode) {
       oscillatorNode.frequency.value += increment;
     }
     setFrequency((frequency) => frequency + increment);
+  };
+
+  const handleModalVisibility = () => {
+    setModalVisibility(!modalVisibility);
   };
 
   const initialiseAudioContext = () => {
@@ -256,7 +278,7 @@ const ToneGenerator = () => {
                     fontFamily: 'inherit',
                     fontSize: '1.5em',
                     fontVariantNumeric: 'tabular-nums',
-                    width: '90px',
+                    width: '130px',
                     marginRight: '6px',
                     paddingRight: '4px',
                     textAlign: 'right',
@@ -396,6 +418,20 @@ const ToneGenerator = () => {
                 Sawtooth
               </button>
             </div>
+            <button
+              className="note-icon"
+              aria-label="Set note frequency"
+              style={{
+                display: 'block',
+                margin: '1em auto',
+              }}
+              onClick={handleModalVisibility}
+            >
+              <FontAwesomeIcon icon={faItunesNote} size="2x" />
+            </button>
+            <Modal show={modalVisibility} handleClose={handleModalVisibility}>
+              <Notes handleChangeNote={handleChangeNote} />
+            </Modal>
           </div>
           <Form />
           <Warning />

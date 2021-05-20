@@ -3,7 +3,7 @@ import React from 'react';
 
 import Home from './Home';
 import PageNotFound from './404';
-import ToneGenerator from './ToneGenerator';
+import ToneGenerator from './tone-generator/ToneGenerator';
 
 const App = () => (
   <Switch>
