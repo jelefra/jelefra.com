@@ -13,89 +13,16 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { faItunesNote } from '@fortawesome/free-brands-svg-icons';
 
+import Form from './Form';
+import Instructions from './Instructions';
 import Modal from '../Modal';
 import Notes from './Notes';
+import Warning from './Warning';
+
 import frequencies from './frequencies';
 
 const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
 const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
-
-const Warning = () => (
-  <>
-    <h2>High volume can cause hearing loss</h2>
-    <p>
-      Listening at a high volume for a long time may damage your hearing. Use
-      with caution.
-    </p>
-    <p>A high volume may also damage your speakers.</p>
-  </>
-);
-
-const Instructions = () => (
-  <>
-    <h2>How to use the frequency generator</h2>
-    <ul>
-      <li>
-        Press <FontAwesomeIcon icon={faPlayCircle} /> to play a tone.
-      </li>
-      <li>
-        Press <FontAwesomeIcon icon={faStopCircle} /> to stop it.
-      </li>
-      <li>
-        Change the frequency one of four ways:
-        <ul>
-          <li>Enter the value in the input field</li>
-          <li>
-            Press <FontAwesomeIcon icon={faCaretLeft} /> to decrease by 1 Hz
-          </li>
-          <li>
-            Press <FontAwesomeIcon icon={faCaretRight} /> to increase by 1 Hz
-          </li>
-          <li>Move the frequency slider</li>
-        </ul>
-      </li>
-      <li>Move the volume slider to control the volume.</li>
-      <li>
-        Move the balance slider to control the stereo panning. When balance is
-        set to &quot;100% L R 100%&quot;, sound will be equally distributed
-        between the left (L) and right (R) channels.
-      </li>
-      <li>
-        Select from &apos;Sine&apos;, &apos;Square&apos;, &apos;Triangle&apos;,
-        and &apos;Sawtooth&apos; to change the waveform.
-      </li>
-      <li>
-        Press <FontAwesomeIcon icon={faItunesNote} /> to set the frequency to a
-        given note between C<sub>0</sub> and B<sub>8</sub>. Frequencies assume A
-        <sub>4</sub> = 440 Hz.
-      </li>
-    </ul>
-  </>
-);
-
-const Form = () => (
-  <>
-    <h2
-      style={{
-        marginTop: '4rem',
-      }}
-    >
-      Send feedback
-    </h2>
-    <p>Suggest improvements, report a bug, or just say hi!</p>
-    <form
-      name="Feedback"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-    >
-      <input type="hidden" name="form-name" value="Feedback" />
-      <label htmlFor="feedback">Send feedback</label>
-      <textarea id="feedback" name="message" placeholder="Message" required />
-      <button type="submit">Send</button>
-    </form>
-  </>
-);
 
 const ToneGenerator = () => {
   const [audioContext, setAudioContext] = useState(null);
