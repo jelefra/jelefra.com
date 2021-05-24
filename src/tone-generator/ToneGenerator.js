@@ -13,6 +13,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { faItunesNote } from '@fortawesome/free-brands-svg-icons';
 
+import DisplayedNote from './DisplayedNote';
 import Form from './Form';
 import Instructions from './Instructions';
 import Modal from '../Modal';
@@ -351,10 +352,17 @@ const ToneGenerator = () => {
               style={{
                 display: 'block',
                 margin: '1em auto',
+                width: '95px',
+                textAlign: 'left',
               }}
               onClick={handleModalVisibility}
             >
-              <FontAwesomeIcon icon={faItunesNote} size="2x" />
+              <FontAwesomeIcon
+                icon={faItunesNote}
+                size="lg"
+                style={{ marginLeft: '5px' }}
+              />
+              <DisplayedNote frequency={frequency} />
             </button>
             <Modal show={modalVisibility} handleClose={handleModalVisibility}>
               <Notes handleChangeNote={handleChangeNote} />
