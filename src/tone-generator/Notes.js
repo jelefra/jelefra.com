@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import FormattedNote from './FormattedNote';
+
 const Notes = ({ handleChangeNote }) => {
   const octaves = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const notes = [
@@ -31,8 +33,7 @@ const Notes = ({ handleChangeNote }) => {
                 margin: `0.2em 0.2em ${index > 6 ? 0.7 : 0.2}em`,
               }}
             >
-              {note}
-              {octave}
+              <FormattedNote note={note} octave={octave} />
             </button>
           ))}
         </div>
