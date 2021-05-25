@@ -21,6 +21,7 @@ import Modal from '../Modal';
 import Notes from './Notes';
 import Warning from './Warning';
 
+import './toneGenerator.scss';
 import frequencies from './utils/frequencies';
 
 const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
