@@ -174,43 +174,6 @@ body {
           background-color: DarkGrey;
         }
       }
-
-      form {
-        max-width: 500px;
-        margin: 1.5em auto;
-
-        textarea {
-          border: 1px solid grey;
-          padding: 5px;
-          margin-bottom: 10px;
-        }
-
-        textarea {
-          width: 100%;
-          min-height: 100px;
-          resize: vertical;
-        }
-
-        ::placeholder {
-          color: grey;
-        }
-
-        button {
-          width: fit-content;
-          margin: 0 auto;
-          padding: 10px 20px;
-          display: block;
-          border: none;
-          border-radius: 10px;
-          color: white;
-          background-color: DimGrey;
-
-          &:hover {
-            color: black;
-            background-color: DarkGrey;
-          }
-        }
-      }
     }
 
     .modal {
