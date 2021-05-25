@@ -13,6 +13,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { faItunesNote } from '@fortawesome/free-brands-svg-icons';
 
+import Container from '.././Container';
 import DisplayedNote from './DisplayedNote';
 import Form from './Form';
 import Instructions from './Instructions';
@@ -147,7 +148,7 @@ const ToneGenerator = () => {
   };
 
   return (
-    <div className="container">
+    <Container>
       <Helmet>
         <title>Tone Generator</title>
         <meta
@@ -373,7 +374,7 @@ const ToneGenerator = () => {
           <Instructions />
         </div>
       </main>
-    </div>
+    </Container>
   );
 };
 

@@ -2,8 +2,10 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
+import Container from './Container';
+
 const Home = () => (
-  <div className="container">
+  <Container>
     <Helmet>
       <title>Jeremy Le François</title>
       <meta
@@ -31,7 +33,7 @@ const Home = () => (
       <a href="https://github.com/jelefra">GitHub</a> -{' '}
       <a href="https://www.linkedin.com/in/jeremylefrancois/">LinkedIn</a>
     </footer>
-  </div>
+  </Container>
 );
 
 export default Home;

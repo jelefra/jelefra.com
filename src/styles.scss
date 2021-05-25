@@ -8,266 +8,256 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   color: #303030;
 
-  .container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem 1.25rem;
+  a {
+    color: royalblue;
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 
-    a {
-      color: royalblue;
-      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-
-      &:link, &:visited, &:focus {
-        text-decoration: none;
-      }
-
-      &:hover, &:active {
-        text-decoration: underline;
-      }
+    &:link, &:visited, &:focus {
+      text-decoration: none;
     }
 
-    .svg-inline--fa {
-      height: 1em;
-      vertical-align: -0.125em;
-
-      &.fa-lg {
-        font-size: 1.33em;
-      }
-
-      &.fa-3x {
-        font-size: 3em;
-      }
-    }
-
-    main {
-      p {
-        margin: 0.5rem 0;
-      }
-
-      h1 {
-        margin: 0.5rem 0;
-        font-size: 2em;
-        font-weight: normal;
-      }
-
-      h2 {
-        margin: 2rem 0 0.5rem;
-        font-size: 1.5em;
-        font-weight: normal;
-      }
-
-      .tone-generator {
-        button {
-          font-size: 1em;
-          cursor: pointer;
-        }
-
-        label {
-          clip: rect(0 0 0 0);
-          clip-path: inset(50%);
-          height: 1px;
-          overflow: hidden;
-          position: absolute;
-          white-space: nowrap;
-          width: 1px;
-        }
-
-        .widget {
-          > button:first-child {
-            color: DimGrey;
-
-            &:hover {
-              color: DarkGrey;
-            }
-          }
-
-          .frequency button {
-            color: DimGrey;
-            border: none;
-            background: transparent;
-            margin: 0 5px;
-
-            &:hover {
-              color: DarkGrey;
-            }
-          }
-
-          input[type=range] {
-            -webkit-appearance: none;
-          }
-
-          input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            margin-top: -11px;
-          }
-
-          @mixin thumb() {
-            border: 1px solid black;
-            height: 30px;
-            width: 13px;
-            border-radius: 3px;
-            background: white;
-            cursor: ew-resize;
-          }
-
-          input {
-            &::-webkit-slider-thumb {
-              @include thumb
-            }
-
-            &::-moz-range-thumb {
-              @include thumb
-            }
-          }
-
-          @mixin track() {
-            height: 8px;
-            cursor: pointer;
-            background: LightSteelBlue;
-          }
-
-          input {
-            &::-webkit-slider-runnable-track {
-              @include track
-            }
-
-            &::-moz-range-track {
-              @include track
-            }
-          }
-
-          .waveform button,
-          button.note-icon {
-            font-family: inherit;
-            font-size: 0.9em;
-            padding: 0.5em;
-            background-color: WhiteSmoke;
-            border: 1px solid WhiteSmoke;
-            border-radius: 10px;
-            cursor: pointer;
-
-            &:hover:not(.active) {
-              border: 1px solid DarkGrey;
-            }
-
-            &.active {
-              background-color: DarkGrey;
-              border: 1px solid DarkGrey;
-            }
-          }
-        }
-
-        .octave {
-          display: grid;
-          // Shorten columns displaying sharp notes
-          grid-template-columns: 15.25% 13% 15.25% 13% 15.25% 15.25% 13%;
-        }
-
-        button.note {
-          background-color: Gainsboro;
-          padding: 2.5px 6px;
-          font-size: 0.8em;
-          height: min-content;
-          border-radius: 4px;
-          border: 1px solid DarkGrey;
-
-          &.sharp {
-            background-color: WhiteSmoke;
-          }
-
-          &:hover {
-            background-color: DarkGrey;
-          }
-        }
-
-        form {
-          max-width: 500px;
-          margin: 1.5em auto;
-
-          textarea {
-            border: 1px solid grey;
-            padding: 5px;
-            margin-bottom: 10px;
-          }
-
-          textarea {
-            width: 100%;
-            min-height: 100px;
-            resize: vertical;
-          }
-
-          ::placeholder {
-            color: grey;
-          }
-
-          button {
-            width: fit-content;
-            margin: 0 auto;
-            padding: 10px 20px;
-            display: block;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            background-color: DimGrey;
-
-            &:hover {
-              color: black;
-              background-color: DarkGrey;
-            }
-          }
-        }
-      }
-
-      .modal {
-        position: fixed;
-        display: none;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-
-        &.visible {
-          display: block;
-        }
-
-        section {
-          position: fixed;
-          background: white;
-          width: 90%;
-          max-width: 800px;
-          height: auto;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          border-radius: 10px;
-          padding: 10px;
-        }
-      }
-    }
-
-    footer {
-      margin: 2rem 0;
-      text-align: center;
-      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    &:hover, &:active {
+      text-decoration: underline;
     }
   }
 
-  @media (min-width: 768px) {
-    .container {
-      max-width: 768px;
+  .svg-inline--fa {
+    height: 1em;
+    vertical-align: -0.125em;
 
-      main {
-        .tone-generator {
-          .octave {
-            // Shorten columns displaying sharp notes
-            grid-template-columns: 10% 6% 10% 6% 10% 10% 6% 10% 6% 10% 6% 10%;
+    &.fa-lg {
+      font-size: 1.33em;
+    }
+
+    &.fa-3x {
+      font-size: 3em;
+    }
+  }
+
+  main {
+    p {
+      margin: 0.5rem 0;
+    }
+
+    h1 {
+      margin: 0.5rem 0;
+      font-size: 2em;
+      font-weight: normal;
+    }
+
+    h2 {
+      margin: 2rem 0 0.5rem;
+      font-size: 1.5em;
+      font-weight: normal;
+    }
+
+    .tone-generator {
+      button {
+        font-size: 1em;
+        cursor: pointer;
+      }
+
+      label {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+
+      .widget {
+        > button:first-child {
+          color: DimGrey;
+
+          &:hover {
+            color: DarkGrey;
           }
         }
 
-        .modal-main {
-          padding: 20px;
+        .frequency button {
+          color: DimGrey;
+          border: none;
+          background: transparent;
+          margin: 0 5px;
+
+          &:hover {
+            color: DarkGrey;
+          }
         }
+
+        input[type=range] {
+          -webkit-appearance: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          margin-top: -11px;
+        }
+
+        @mixin thumb() {
+          border: 1px solid black;
+          height: 30px;
+          width: 13px;
+          border-radius: 3px;
+          background: white;
+          cursor: ew-resize;
+        }
+
+        input {
+          &::-webkit-slider-thumb {
+            @include thumb
+          }
+
+          &::-moz-range-thumb {
+            @include thumb
+          }
+        }
+
+        @mixin track() {
+          height: 8px;
+          cursor: pointer;
+          background: LightSteelBlue;
+        }
+
+        input {
+          &::-webkit-slider-runnable-track {
+            @include track
+          }
+
+          &::-moz-range-track {
+            @include track
+          }
+        }
+
+        .waveform button,
+        button.note-icon {
+          font-family: inherit;
+          font-size: 0.9em;
+          padding: 0.5em;
+          background-color: WhiteSmoke;
+          border: 1px solid WhiteSmoke;
+          border-radius: 10px;
+          cursor: pointer;
+
+          &:hover:not(.active) {
+            border: 1px solid DarkGrey;
+          }
+
+          &.active {
+            background-color: DarkGrey;
+            border: 1px solid DarkGrey;
+          }
+        }
+      }
+
+      .octave {
+        display: grid;
+        // Shorten columns displaying sharp notes
+        grid-template-columns: 15.25% 13% 15.25% 13% 15.25% 15.25% 13%;
+      }
+
+      button.note {
+        background-color: Gainsboro;
+        padding: 2.5px 6px;
+        font-size: 0.8em;
+        height: min-content;
+        border-radius: 4px;
+        border: 1px solid DarkGrey;
+
+        &.sharp {
+          background-color: WhiteSmoke;
+        }
+
+        &:hover {
+          background-color: DarkGrey;
+        }
+      }
+
+      form {
+        max-width: 500px;
+        margin: 1.5em auto;
+
+        textarea {
+          border: 1px solid grey;
+          padding: 5px;
+          margin-bottom: 10px;
+        }
+
+        textarea {
+          width: 100%;
+          min-height: 100px;
+          resize: vertical;
+        }
+
+        ::placeholder {
+          color: grey;
+        }
+
+        button {
+          width: fit-content;
+          margin: 0 auto;
+          padding: 10px 20px;
+          display: block;
+          border: none;
+          border-radius: 10px;
+          color: white;
+          background-color: DimGrey;
+
+          &:hover {
+            color: black;
+            background-color: DarkGrey;
+          }
+        }
+      }
+    }
+
+    .modal {
+      position: fixed;
+      display: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+
+      &.visible {
+        display: block;
+      }
+
+      section {
+        position: fixed;
+        background: white;
+        width: 90%;
+        max-width: 800px;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        padding: 10px;
+      }
+    }
+  }
+
+  footer {
+    margin: 2rem 0;
+    text-align: center;
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  @media (min-width: 768px) {
+    main {
+      .tone-generator {
+        .octave {
+          // Shorten columns displaying sharp notes
+          grid-template-columns: 10% 6% 10% 6% 10% 10% 6% 10% 6% 10% 6% 10%;
+        }
+      }
+
+      .modal-main {
+        padding: 20px;
       }
     }
   }
