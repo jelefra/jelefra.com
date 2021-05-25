@@ -8,6 +8,22 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   color: #303030;
 
+  h1 {
+    margin: 0.5rem 0;
+    font-size: 2em;
+    font-weight: normal;
+  }
+
+  h2 {
+    margin: 2rem 0 0.5rem;
+    font-size: 1.5em;
+    font-weight: normal;
+  }
+
+  p {
+    margin: 0.5rem 0;
+  }
+
   a {
     color: royalblue;
     font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
@@ -35,22 +51,6 @@ body {
   }
 
   main {
-    p {
-      margin: 0.5rem 0;
-    }
-
-    h1 {
-      margin: 0.5rem 0;
-      font-size: 2em;
-      font-weight: normal;
-    }
-
-    h2 {
-      margin: 2rem 0 0.5rem;
-      font-size: 1.5em;
-      font-weight: normal;
-    }
-
     .tone-generator {
       button {
         font-size: 1em;
@@ -239,12 +239,6 @@ body {
         padding: 10px;
       }
     }
-  }
-
-  footer {
-    margin: 2rem 0;
-    text-align: center;
-    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   }
 
   @media (min-width: 768px) {
