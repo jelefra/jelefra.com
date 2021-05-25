@@ -42,12 +42,14 @@ body {
     }
   }
 
+  // Prevent content layout shifts on JavaScript load
   .svg-inline--fa {
     height: 1em;
     vertical-align: -0.125em;
 
     &.fa-lg {
       font-size: 1.33em;
+      vertical-align: -0.225em;
     }
 
     &.fa-3x {
