@@ -3,7 +3,7 @@ import React from 'react';
 
 import FormattedNote from './FormattedNote';
 
-import getNoteFromFrequency from './getNoteFromFrequency';
+import getNoteFromFrequency from './utils/getNoteFromFrequency';
 
 const DisplayedNote = ({ frequency }) => {
   const noteInfo = getNoteFromFrequency(frequency);

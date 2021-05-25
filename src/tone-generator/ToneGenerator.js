@@ -20,7 +20,7 @@ import Modal from '../Modal';
 import Notes from './Notes';
 import Warning from './Warning';
 
-import frequencies from './frequencies';
+import frequencies from './utils/frequencies';
 
 const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
 const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
