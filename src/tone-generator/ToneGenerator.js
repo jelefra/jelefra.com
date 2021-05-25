@@ -203,7 +203,7 @@ const ToneGenerator = () => {
                   step="1"
                   onChange={handleChangeFrequency}
                   style={{
-                    border: '1px solid DarkGrey',
+                    border: '1px solid darkgrey',
                     borderRadius: '4px',
                     fontFamily: 'inherit',
                     fontSize: '1.5em',
@@ -247,7 +247,7 @@ const ToneGenerator = () => {
                 style={{
                   gridColumn: '1 / span 1',
                   justifySelf: 'end',
-                  color: 'DimGrey',
+                  color: 'dimgrey',
                 }}
               />
               <label htmlFor="gain">Change volume</label>

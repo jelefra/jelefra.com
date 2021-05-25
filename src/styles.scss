@@ -1,5 +1,7 @@
 body {
-  *, *:before, *:after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
@@ -28,11 +30,14 @@ body {
     color: royalblue;
     font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 
-    &:link, &:visited, &:focus {
+    &:link,
+    &:visited,
+    &:focus {
       text-decoration: none;
     }
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       text-decoration: underline;
     }
   }
