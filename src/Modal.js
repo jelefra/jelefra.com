@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+import './modal.scss';
+
 const Modal = ({ handleClose, show, children }) => {
   return (
     <div className={show ? 'modal visible' : 'modal'}>
