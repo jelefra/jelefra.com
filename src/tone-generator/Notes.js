@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import './notes.scss';
 import FormattedNote from './FormattedNote';
 
 const Notes = ({ handleChangeNote }) => {
