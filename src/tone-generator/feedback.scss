@@ -1,35 +1,21 @@
-.tone-generator {
-  form {
-    max-width: 500px;
-    margin: 1.5em auto;
+h2.feedback {
+  margin-top: 4rem;
+}
 
-    textarea {
-      border: 1px solid grey;
-      padding: 5px;
-      margin-bottom: 10px;
-      width: 100%;
-      min-height: 100px;
-      resize: vertical;
-    }
+form.feedback {
+  max-width: 500px;
+  margin: 1.5em auto;
 
-    ::placeholder {
-      color: grey;
-    }
+  textarea {
+    border: 1px solid grey;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+  }
 
-    button {
-      width: fit-content;
-      margin: 0 auto;
-      padding: 10px 20px;
-      display: block;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      background-color: dimgrey;
-
-      &:hover {
-        color: black;
-        background-color: darkgrey;
-      }
-    }
+  ::placeholder {
+    color: grey;
   }
 }

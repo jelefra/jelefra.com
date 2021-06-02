@@ -10,6 +10,11 @@
     height: min-content;
     border-radius: 4px;
     border: 1px solid darkgrey;
+    margin: 0.2em 0.2em 0.2em;
+
+    &.wrapped {
+      margin-bottom: 0.7em;
+    }
 
     &.sharp {
       background-color: whitesmoke;

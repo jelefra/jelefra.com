@@ -160,33 +160,20 @@ const ToneGenerator = () => {
       </Helmet>
       <main>
         <Link to="/">← Home</Link>
-        <div className="tone-generator" style={{ marginTop: '2rem' }}>
-          <h1 style={{ marginBottom: '3rem' }}>Tone generator</h1>
+        <div className="tone-generator">
+          <h1>Tone generator</h1>
           <div className="widget">
             <button
               aria-label={oscillatorNode ? 'Stop' : 'Play'}
               onClick={togglePlay}
-              style={{
-                display: 'block',
-                border: 'none',
-                background: 'transparent',
-                margin: '0 auto',
-              }}
             >
               <FontAwesomeIcon
                 icon={oscillatorNode ? faStopCircle : faPlayCircle}
                 size="3x"
               />
             </button>
-            <div className="frequency" style={{ margin: '1.5em auto' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginBottom: '1em',
-                }}
-              >
+            <div className="frequency">
+              <div>
                 <button
                   aria-label="Decrement frequency by 1"
                   onClick={() => handleChangeIncrementFrequency(-1)}
@@ -202,17 +189,6 @@ const ToneGenerator = () => {
                   value={frequency}
                   step="1"
                   onChange={handleChangeFrequency}
-                  style={{
-                    border: '1px solid darkgrey',
-                    borderRadius: '4px',
-                    fontFamily: 'inherit',
-                    fontSize: '1.5em',
-                    fontVariantNumeric: 'tabular-nums',
-                    width: '130px',
-                    marginRight: '6px',
-                    paddingRight: '4px',
-                    textAlign: 'right',
-                  }}
                 />
                 <span> Hz</span>
                 <button
@@ -231,25 +207,10 @@ const ToneGenerator = () => {
                 value={frequency}
                 step="1"
                 onChange={handleChangeFrequency}
-                style={{ display: 'block', margin: '0 auto', width: '300px' }}
               />
             </div>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 175px 1fr',
-                alignItems: 'center',
-                margin: '1.85em 0 1.5em',
-              }}
-            >
-              <FontAwesomeIcon
-                icon={faVolumeUp}
-                style={{
-                  gridColumn: '1 / span 1',
-                  justifySelf: 'end',
-                  color: 'dimgrey',
-                }}
-              />
+            <div className="gain">
+              <FontAwesomeIcon icon={faVolumeUp} className="volume-up" />
               <label htmlFor="gain">Change volume</label>
               <input
                 id="gain"
@@ -259,34 +220,12 @@ const ToneGenerator = () => {
                 value={gain}
                 step="0.01"
                 onChange={handleChangeGain}
-                style={{ gridColumn: '2 / span 1', margin: '0 10px' }}
               />
-              <span
-                style={{
-                  fontVariantNumeric: 'tabular-nums',
-                }}
-              >
-                {formatGain(gain)}
-              </span>
+              <span>{formatGain(gain)}</span>
             </div>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 175px 1fr',
-                alignItems: 'center',
-                margin: '1.5em 0',
-              }}
-            >
-              <span style={{ gridColumn: '1 / span 1', justifySelf: 'end' }}>
-                <span
-                  style={{
-                    marginRight: '0.3em',
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  {pan <= 0 ? '100%' : displayBalance(pan)}
-                </span>
-                L
+            <div className="balance">
+              <span>
+                <span>{pan <= 0 ? '100%' : displayBalance(pan)}</span>L
               </span>
               <label htmlFor="balance">Change balance</label>
               <input
@@ -297,72 +236,50 @@ const ToneGenerator = () => {
                 value={pan}
                 step="0.01"
                 onChange={handleChangeStereoPanner}
-                style={{ gridColumn: '2 / span 1', margin: '0 10px' }}
               />
-              <span style={{ gridColumn: '3 / span 1', justifySelf: 'start' }}>
-                R
-                <span
-                  style={{
-                    marginLeft: '0.3em',
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  {pan >= 0 ? '100%' : displayBalance(-pan)}
-                </span>
+              <span>
+                R<span>{pan >= 0 ? '100%' : displayBalance(-pan)}</span>
               </span>
             </div>
-            <div
-              className="waveform"
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                margin: '0.5em 0',
-              }}
-            >
+            <div className="waveform">
               <button
                 onClick={() => onClickWaveform('sine')}
-                style={{ margin: '0 0.5em' }}
-                className={waveform === 'sine' ? 'active' : null}
+                className={`secondary ${waveform === 'sine' ? 'active' : ''}`}
               >
                 Sine
               </button>
               <button
                 onClick={() => onClickWaveform('square')}
-                style={{ margin: '0 0.5em' }}
-                className={waveform === 'square' ? 'active' : null}
+                className={`secondary ${waveform === 'square' ? 'active' : ''}`}
               >
                 Square
               </button>
               <button
                 onClick={() => onClickWaveform('triangle')}
-                style={{ margin: '0 0.5em' }}
-                className={waveform === 'triangle' ? 'active' : null}
+                className={`secondary ${
+                  waveform === 'triangle' ? 'active' : ''
+                }`}
               >
                 Triangle
               </button>
               <button
                 onClick={() => onClickWaveform('sawtooth')}
-                className={waveform === 'sawtooth' ? 'active' : null}
-                style={{ margin: '0 0.5em' }}
+                className={`secondary ${
+                  waveform === 'sawtooth' ? 'active' : ''
+                }`}
               >
                 Sawtooth
               </button>
             </div>
             <button
-              className="note-icon"
+              className="secondary select-note"
               aria-label="Set note frequency"
-              style={{
-                display: 'block',
-                margin: '1em auto',
-                width: '95px',
-                textAlign: 'left',
-              }}
               onClick={handleModalVisibility}
             >
               <FontAwesomeIcon
                 icon={faItunesNote}
                 size="lg"
-                style={{ marginLeft: '5px' }}
+                className="note-icon"
               />
               <DisplayedNote frequency={frequency} />
             </button>

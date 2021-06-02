@@ -29,10 +29,9 @@ const Notes = ({ handleChangeNote }) => {
             <button
               key={note}
               onClick={() => handleChangeNote(`${note}${octave}`)}
-              className={note.includes('#') ? 'note sharp' : 'note'}
-              style={{
-                margin: `0.2em 0.2em ${index > 6 ? 0.7 : 0.2}em`,
-              }}
+              className={`note ${note.includes('#') ? 'sharp' : ''} ${
+                index > 6 ? 'wrapped' : ''
+              }`}
             >
               <FormattedNote note={note} octave={octave} />
             </button>

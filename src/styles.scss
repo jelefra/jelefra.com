@@ -42,6 +42,45 @@ body {
     }
   }
 
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    border-radius: 10px;
+    display: block;
+
+    &.primary {
+      background-color: dimgrey;
+      padding: 10px 20px;
+      border: none;
+      margin: 0 auto;
+      width: fit-content;
+      color: white;
+
+      &:hover {
+        color: black;
+        background-color: darkgrey;
+      }
+    }
+
+    &.secondary {
+      font-size: 0.9em;
+      background-color: whitesmoke;
+      padding: 0.5em;
+      border: 1px solid whitesmoke;
+      margin: 1em auto;
+
+      &:hover:not(.active) {
+        border: 1px solid darkgrey;
+      }
+
+      &.active {
+        background-color: darkgrey;
+        border: 1px solid darkgrey;
+      }
+    }
+  }
+
   // Prevent content layout shifts on JavaScript load
   .svg-inline--fa {
     height: 1em;

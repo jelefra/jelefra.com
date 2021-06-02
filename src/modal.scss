@@ -23,6 +23,17 @@
     border-radius: 10px;
     padding: 10px;
 
+    > div:first-child {
+      display: flex;
+      justify-content: flex-end;
+
+      > button:first-child {
+        padding: 0.5em;
+        border: none;
+        background: transparent;
+      }
+    }
+
     @media (min-width: 768px) {
       padding: 20px;
     }

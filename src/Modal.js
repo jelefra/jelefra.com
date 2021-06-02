@@ -9,18 +9,8 @@ const Modal = ({ handleClose, show, children }) => {
   return (
     <div className={show ? 'modal visible' : 'modal'}>
       <section>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <button
-            type="button"
-            onClick={handleClose}
-            aria-label="Close"
-            style={{
-              padding: '0.5em',
-              border: 'none',
-              background: 'transparent',
-              cursor: 'pointer',
-            }}
-          >
+        <div>
+          <button type="button" onClick={handleClose} aria-label="Close">
             <FontAwesomeIcon icon={faTimes} size="lg" />
           </button>
         </div>
