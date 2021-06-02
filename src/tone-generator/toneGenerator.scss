@@ -1,8 +1,8 @@
 .tone-generator {
-  margin-top: 2rem;
+  margin-top: 32px;
 
   h1 {
-    margin-bottom: 3rem;
+    margin-bottom: 48px;
   }
 
   label {
@@ -29,13 +29,13 @@
     }
 
     .frequency {
-      margin: 1.5em auto;
+      margin: 24px auto;
 
       > div:first-child {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 1em;
+        margin-bottom: 16px;
       }
 
       button {
@@ -72,7 +72,7 @@
       display: grid;
       grid-template-columns: 1fr 175px 1fr;
       align-items: center;
-      margin: 1.85em 0 1.5em;
+      margin: 30px 0 24px;
 
       .volume-up {
         grid-column: 1 / span 1;
@@ -94,14 +94,14 @@
       display: grid;
       grid-template-columns: 1fr 175px 1fr;
       align-items: center;
-      margin: 1.5em 0;
+      margin: 24px 0;
 
       > span:first-child {
         grid-column: 1 / span 1;
         justify-self: end;
 
         > span:first-child {
-          margin-right: 0.3em;
+          margin-right: 5px;
           font-variant-numeric: tabular-nums;
         }
       }
@@ -116,7 +116,7 @@
         justify-self: start;
 
         > span:first-child {
-          margin-left: 0.3em;
+          margin-left: 5px;
           font-variant-numeric: tabular-nums;
         }
       }
@@ -125,10 +125,10 @@
     .waveform {
       display: flex;
       justify-content: center;
-      margin: 0.5em 0;
+      margin: 8px 0;
 
       button {
-        margin: 0 0.5em;
+        margin: 0 8px;
       }
     }
 

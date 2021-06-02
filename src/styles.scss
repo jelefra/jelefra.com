@@ -1,3 +1,7 @@
+html {
+  font-size: 100%;
+}
+
 body {
   *,
   *::before,
@@ -11,19 +15,19 @@ body {
   color: #303030;
 
   h1 {
-    margin: 0.5rem 0;
+    margin: 8px 0;
     font-size: 2em;
     font-weight: normal;
   }
 
   h2 {
-    margin: 2rem 0 0.5rem;
+    margin: 32px 0 8px;
     font-size: 1.5em;
     font-weight: normal;
   }
 
   p {
-    margin: 0.5rem 0;
+    margin: 8px 0;
   }
 
   a {
@@ -66,9 +70,9 @@ body {
     &.secondary {
       font-size: 0.9em;
       background-color: whitesmoke;
-      padding: 0.5em;
+      padding: 8px;
       border: 1px solid whitesmoke;
-      margin: 1em auto;
+      margin: 16px auto;
 
       &:hover:not(.active) {
         border: 1px solid darkgrey;
