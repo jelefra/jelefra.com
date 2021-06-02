@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './form.scss';
+import './feedback.scss';
 
-const Form = () => (
+const Feedback = () => (
   <>
     <h2
       style={{
@@ -26,4 +26,4 @@ const Form = () => (
   </>
 );
 
-export default Form;
+export default Feedback;

@@ -15,7 +15,7 @@ import { faItunesNote } from '@fortawesome/free-brands-svg-icons';
 
 import Container from '.././Container';
 import DisplayedNote from './DisplayedNote';
-import Form from './Form';
+import Feedback from './Feedback';
 import Instructions from './Instructions';
 import Modal from '../Modal';
 import Notes from './Notes';
@@ -370,7 +370,7 @@ const ToneGenerator = () => {
               <Notes handleChangeNote={handleChangeNote} />
             </Modal>
           </div>
-          <Form />
+          <Feedback />
           <Warning />
           <Instructions />
         </div>
