@@ -22,7 +22,7 @@ import Notes from './Notes';
 import Warning from './Warning';
 
 import './toneGenerator.scss';
-import frequencies from './utils/frequencies';
+import frequencies from './constants/frequencies';
 
 const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
 const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;

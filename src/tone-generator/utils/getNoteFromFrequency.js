@@ -1,4 +1,4 @@
-import frequencies from './frequencies';
+import frequencies from '../constants/frequencies';
 
 const FREQUENCIES_VALUES = Object.values(frequencies);
 const FREQUENCIES_ENTRIES = Object.entries(frequencies);
