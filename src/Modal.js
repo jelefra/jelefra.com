@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import './modal.scss';
+import styles from './modal.module.scss';
 
 const Modal = ({ handleClose, show, children }) => {
   return (
-    <div className={show ? 'modal visible' : 'modal'}>
+    <div className={`${styles.modal} ${show ? styles.visible : ''}`}>
       <section>
         <div>
           <button type="button" onClick={handleClose} aria-label="Close">

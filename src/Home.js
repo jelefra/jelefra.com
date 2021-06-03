@@ -2,8 +2,8 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-import './home.scss';
 import Container from './Container';
+import styles from './home.module.scss';
 
 const Home = () => (
   <Container>
@@ -30,7 +30,7 @@ const Home = () => (
         </li>
       </ul>
     </main>
-    <footer>
+    <footer className={styles.footer}>
       <a href="https://github.com/jelefra">GitHub</a> -{' '}
       <a href="https://www.linkedin.com/in/jeremylefrancois/">LinkedIn</a>
     </footer>

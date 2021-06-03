@@ -21,8 +21,8 @@ import Modal from '../Modal';
 import Notes from './Notes';
 import Warning from './Warning';
 
-import './toneGenerator.scss';
 import frequencies from './constants/frequencies';
+import styles from './toneGenerator.module.scss';
 
 const formatGain = (gain) => `${Math.trunc(100 * gain)}%`;
 const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
@@ -160,9 +160,9 @@ const ToneGenerator = () => {
       </Helmet>
       <main>
         <Link to="/">← Home</Link>
-        <div className="tone-generator">
+        <div className={styles.toneGenerator}>
           <h1>Tone generator</h1>
-          <div className="widget">
+          <div className={styles.widget}>
             <button
               aria-label={oscillatorNode ? 'Stop' : 'Play'}
               onClick={togglePlay}
@@ -172,7 +172,7 @@ const ToneGenerator = () => {
                 size="3x"
               />
             </button>
-            <div className="frequency">
+            <div className={styles.frequency}>
               <div>
                 <button
                   aria-label="Decrement frequency by 1"
@@ -180,10 +180,11 @@ const ToneGenerator = () => {
                 >
                   <FontAwesomeIcon icon={faCaretLeft} size="3x" />
                 </button>
-                <label htmlFor="hertz">Frequency in hertz</label>
+                <label htmlFor="frequencyNumber">Frequency in hertz</label>
                 <input
+                  id="frequencyNumber"
+                  className={styles.frequencyNumber}
                   type="number"
-                  id="hertz"
                   min={minFrequency}
                   max={maxFrequency}
                   value={frequency}
@@ -198,9 +199,10 @@ const ToneGenerator = () => {
                   <FontAwesomeIcon icon={faCaretRight} size="3x" />
                 </button>
               </div>
-              <label htmlFor="frequency">Change frequency</label>
+              <label htmlFor="frequencyRange">Change frequency</label>
               <input
-                id="frequency"
+                id="frequencyRange"
+                className={styles.frequencyRange}
                 type="range"
                 min={minFrequency}
                 max={maxFrequency}
@@ -209,11 +211,12 @@ const ToneGenerator = () => {
                 onChange={handleChangeFrequency}
               />
             </div>
-            <div className="gain">
-              <FontAwesomeIcon icon={faVolumeUp} className="volume-up" />
-              <label htmlFor="gain">Change volume</label>
+            <div className={styles.gain}>
+              <FontAwesomeIcon icon={faVolumeUp} className={styles.volumeUp} />
+              <label htmlFor="gainRange">Change volume</label>
               <input
-                id="gain"
+                id="gainRange"
+                className={styles.gainRange}
                 type="range"
                 min="0"
                 max="1"
@@ -223,13 +226,14 @@ const ToneGenerator = () => {
               />
               <span>{formatGain(gain)}</span>
             </div>
-            <div className="balance">
+            <div className={styles.balance}>
               <span>
                 <span>{pan <= 0 ? '100%' : displayBalance(pan)}</span>L
               </span>
-              <label htmlFor="balance">Change balance</label>
+              <label htmlFor="balanceRange">Change balance</label>
               <input
-                id="balance"
+                id="balanceRange"
+                className={styles.balanceRange}
                 type="range"
                 min="-1"
                 max="1"
@@ -241,45 +245,49 @@ const ToneGenerator = () => {
                 R<span>{pan >= 0 ? '100%' : displayBalance(-pan)}</span>
               </span>
             </div>
-            <div className="waveform">
+            <div className={styles.waveform}>
               <button
                 onClick={() => onClickWaveform('sine')}
-                className={`secondary ${waveform === 'sine' ? 'active' : ''}`}
+                className={`${styles.waveformButton} ${
+                  waveform === 'sine' ? styles.active : ''
+                }`}
               >
                 Sine
               </button>
               <button
                 onClick={() => onClickWaveform('square')}
-                className={`secondary ${waveform === 'square' ? 'active' : ''}`}
+                className={`${styles.waveformButton} ${
+                  waveform === 'square' ? styles.active : ''
+                }`}
               >
                 Square
               </button>
               <button
                 onClick={() => onClickWaveform('triangle')}
-                className={`secondary ${
-                  waveform === 'triangle' ? 'active' : ''
+                className={`${styles.waveformButton} ${
+                  waveform === 'triangle' ? styles.active : ''
                 }`}
               >
                 Triangle
               </button>
               <button
                 onClick={() => onClickWaveform('sawtooth')}
-                className={`secondary ${
-                  waveform === 'sawtooth' ? 'active' : ''
+                className={`${styles.waveformButton} ${
+                  waveform === 'sawtooth' ? styles.active : ''
                 }`}
               >
                 Sawtooth
               </button>
             </div>
             <button
-              className="secondary select-note"
+              className={styles.selectNote}
               aria-label="Set note frequency"
               onClick={handleModalVisibility}
             >
               <FontAwesomeIcon
                 icon={faItunesNote}
                 size="lg"
-                className="note-icon"
+                className={styles.noteIcon}
               />
               <DisplayedNote frequency={frequency} />
             </button>

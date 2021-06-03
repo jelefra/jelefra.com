@@ -3,7 +3,7 @@
   // Shorten columns displaying sharp notes
   grid-template-columns: 15.25% 13% 15.25% 13% 15.25% 15.25% 13%;
 
-  button.note {
+  .note {
     background-color: gainsboro;
     padding: 2.5px 6px;
     font-size: 0.8em;
@@ -12,16 +12,16 @@
     border: 1px solid darkgrey;
     margin: 3px 3px 3px;
 
+    &:hover {
+      background-color: darkgrey;
+    }
+
     &.wrapped {
       margin-bottom: 11px;
     }
 
     &.sharp {
       background-color: whitesmoke;
-    }
-
-    &:hover {
-      background-color: darkgrey;
     }
   }
 

@@ -7,10 +7,6 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
 
-  &.visible {
-    display: block;
-  }
-
   section {
     position: fixed;
     background: white;
@@ -38,4 +34,8 @@
       padding: 20px;
     }
   }
+}
+
+.visible {
+  display: block;
 }

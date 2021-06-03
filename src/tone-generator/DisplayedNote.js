@@ -3,8 +3,8 @@ import React from 'react';
 
 import FormattedNote from './FormattedNote';
 
-import './displayedNote.scss';
 import getNoteFromFrequency from './utils/getNoteFromFrequency';
+import styles from './displayedNote.module.scss';
 
 const DisplayedNote = ({ frequency }) => {
   const noteInfo = getNoteFromFrequency(frequency);
@@ -14,7 +14,7 @@ const DisplayedNote = ({ frequency }) => {
   const octave = Number(fullNote.slice(-1));
 
   return (
-    <span className="displayed-note">
+    <span className={styles.displayedNote}>
       {!isExact && '~'}
       <FormattedNote note={note} octave={octave} />
     </span>
