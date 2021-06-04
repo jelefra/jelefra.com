@@ -1,8 +1,10 @@
+@use '../variables';
+
 .toneGenerator {
-  margin-top: 32px;
+  margin-top: variables.$spacing-34;
 
   h1 {
-    margin-bottom: 48px;
+    margin-bottom: variables.$spacing-34;
   }
 
   label {
@@ -21,43 +23,43 @@
       border: none;
       background: transparent;
       margin: 0 auto;
-      color: dimgrey;
+      color: variables.$dark-grey;
 
       &:hover {
-        color: darkgrey;
+        color: variables.$grey;
       }
     }
 
     .frequency {
-      margin: 24px auto;
+      margin: variables.$spacing-21 auto;
 
       > div:first-child {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 16px;
+        margin-bottom: variables.$spacing-13;
       }
 
       button {
-        color: dimgrey;
+        color: variables.$dark-grey;
         border: none;
         background: transparent;
-        margin: 0 5px;
+        margin: 0 variables.$spacing-5;
 
         &:hover {
-          color: darkgrey;
+          color: variables.$grey;
         }
       }
 
       .frequencyNumber {
-        border: 1px solid darkgrey;
-        border-radius: 4px;
+        border: 1px solid variables.$grey;
+        border-radius: variables.$border-radius-m;
         font-family: inherit;
         font-size: 1.5em;
         font-variant-numeric: tabular-nums;
         width: 130px;
-        margin-right: 6px;
-        padding-right: 4px;
+        margin-right: variables.$spacing-5;
+        padding-right: variables.$spacing-5;
         text-align: right;
       }
 
@@ -72,17 +74,17 @@
       display: grid;
       grid-template-columns: 1fr 175px 1fr;
       align-items: center;
-      margin: 30px 0 24px;
+      margin: variables.$spacing-34 0 variables.$spacing-21;
 
       .volumeUp {
         grid-column: 1 / span 1;
         justify-self: end;
-        color: dimgrey;
+        color: variables.$dark-grey;
       }
 
       .gainRange {
         grid-column: 2 / span 1;
-        margin: 0 10px;
+        margin: 0 variables.$spacing-13;
       }
 
       span {
@@ -94,21 +96,21 @@
       display: grid;
       grid-template-columns: 1fr 175px 1fr;
       align-items: center;
-      margin: 24px 0;
+      margin: variables.$spacing-21 0;
 
       > span:first-child {
         grid-column: 1 / span 1;
         justify-self: end;
 
         > span:first-child {
-          margin-right: 5px;
+          margin-right: variables.$spacing-5;
           font-variant-numeric: tabular-nums;
         }
       }
 
       .balanceRange {
         grid-column: 2 / span 1;
-        margin: 0 10px;
+        margin: 0 variables.$spacing-8;
       }
 
       > span:nth-of-type(2) {
@@ -116,7 +118,7 @@
         justify-self: start;
 
         > span:first-child {
-          margin-left: 5px;
+          margin-left: variables.$spacing-5;
           font-variant-numeric: tabular-nums;
         }
       }
@@ -125,10 +127,10 @@
     .waveform {
       display: flex;
       justify-content: center;
-      margin: 8px 0;
+      margin: variables.$spacing-8 0;
 
       button {
-        margin: 0 8px;
+        margin: 0 variables.$spacing-8;
       }
     }
 
@@ -142,18 +144,18 @@
     }
 
     @mixin thumb() {
-      border: 1px solid black;
+      border: 1px solid variables.$black;
       height: 30px;
       width: 13px;
-      border-radius: 3px;
-      background: white;
+      border-radius: variables.$border-radius-m;
+      background: variables.$white;
       cursor: ew-resize;
     }
 
     @mixin track() {
       height: 8px;
       cursor: pointer;
-      background: lightsteelblue;
+      background: variables.$light-blue;
     }
 
     input {
@@ -175,19 +177,19 @@
     }
 
     .buttonSecondary {
-      font-size: 0.9em;
-      background-color: whitesmoke;
-      padding: 8px;
-      border: 1px solid whitesmoke;
-      margin: 16px auto;
+      font-size: variables.$font-m;
+      background-color: variables.$lightest-grey;
+      padding: variables.$spacing-8;
+      border: 1px solid variables.$lightest-grey;
+      margin: variables.$spacing-13 auto;
 
       &:hover:not(.active) {
-        border: 1px solid darkgrey;
+        border: 1px solid variables.$grey;
       }
 
       &.active {
-        background-color: darkgrey;
-        border: 1px solid darkgrey;
+        background-color: variables.$light-grey;
+        border: 1px solid variables.$light-grey;
       }
     }
 
@@ -198,11 +200,11 @@
     .selectNote {
       @extend .buttonSecondary;
 
-      width: 95px;
+      width: 100px;
       text-align: left;
 
       .noteIcon {
-        margin-left: 5px;
+        margin-left: variables.$spacing-5;
       }
     }
   }

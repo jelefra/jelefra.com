@@ -1,4 +1,6 @@
+@use '../variables';
+
 .displayedNote {
-  padding-left: 12px;
-  font-size: 1.2em;
+  padding-left: variables.$spacing-13;
+  font-size: variables.$font-l;
 }

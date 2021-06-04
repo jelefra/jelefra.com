@@ -1,31 +1,33 @@
+@use '../variables';
+
 .octave {
   display: grid;
   // Shorten columns displaying sharp notes
   grid-template-columns: 15.25% 13% 15.25% 13% 15.25% 15.25% 13%;
 
   .note {
-    background-color: gainsboro;
-    padding: 2.5px 6px;
-    font-size: 0.8em;
+    background-color: variables.$lighter-grey;
+    padding: variables.$spacing-2 variables.$spacing-5;
+    font-size: variables.$font-s;
     height: min-content;
-    border-radius: 4px;
-    border: 1px solid darkgrey;
-    margin: 3px 3px 3px;
-
-    &:hover {
-      background-color: darkgrey;
-    }
+    border-radius: variables.$border-radius-m;
+    border: 1px solid variables.$grey;
+    margin: variables.$spacing-3 variables.$spacing-3 variables.$spacing-3;
 
     &.wrapped {
-      margin-bottom: 11px;
+      margin-bottom: variables.$spacing-8;
     }
 
     &.sharp {
-      background-color: whitesmoke;
+      background-color: variables.$lightest-grey;
+    }
+
+    &:hover {
+      background-color: variables.$light-grey;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: variables.$screen-m) {
     grid-template-columns: 10% 6% 10% 6% 10% 10% 6% 10% 6% 10% 6% 10%;
   }
 }

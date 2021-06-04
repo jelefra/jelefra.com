@@ -1,9 +1,11 @@
+@use 'variables';
+
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 32px 20px;
+  padding: variables.$spacing-34 variables.$spacing-21;
 
-  @media (min-width: 768px) {
-    max-width: 768px;
+  @media (min-width: variables.$screen-m) {
+    max-width: variables.$screen-m;
   }
 }

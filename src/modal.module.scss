@@ -1,3 +1,5 @@
+@use 'variables';
+
 .modal {
   position: fixed;
   display: none;
@@ -9,29 +11,29 @@
 
   section {
     position: fixed;
-    background: white;
+    background: variables.$white;
     width: 90%;
     max-width: 800px;
     height: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: variables.$border-radius-l;
+    padding: variables.$spacing-8;
 
     > div:first-child {
       display: flex;
       justify-content: flex-end;
 
       > button:first-child {
-        padding: 8px;
+        padding: variables.$spacing-8;
         border: none;
         background: transparent;
       }
     }
 
-    @media (min-width: 768px) {
-      padding: 20px;
+    @media (min-width: variables.$screen-m) {
+      padding: variables.$spacing-21;
     }
   }
 }

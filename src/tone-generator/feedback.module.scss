@@ -1,35 +1,37 @@
+@use '../variables';
+
 .heading {
-  margin-top: 64px;
+  margin-top: variables.$spacing-55;
 }
 
 .form {
   max-width: 500px;
-  margin: 24px auto;
+  margin: variables.$spacing-21 auto;
 
   textarea {
-    border: 1px solid grey;
-    padding: 5px;
-    margin-bottom: 10px;
+    border: 1px solid variables.$grey;
+    padding: variables.$spacing-5;
+    margin-bottom: variables.$spacing-8;
     width: 100%;
     min-height: 100px;
     resize: vertical;
   }
 
   ::placeholder {
-    color: grey;
+    color: variables.$grey;
   }
 
   .primary {
-    background-color: dimgrey;
-    padding: 10px 20px;
+    background-color: variables.$dark-grey;
+    padding: variables.$spacing-8 variables.$spacing-21;
     border: none;
     margin: 0 auto;
     width: fit-content;
-    color: white;
+    color: variables.$white;
 
     &:hover {
-      color: black;
-      background-color: darkgrey;
+      color: variables.$black;
+      background-color: variables.$light-grey;
     }
   }
 }
