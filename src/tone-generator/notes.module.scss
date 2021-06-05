@@ -7,11 +7,11 @@
 
   .note {
     background-color: variables.$lighter-grey;
+    border: 1px solid variables.$lighter-grey;
     padding: variables.$spacing-2 variables.$spacing-5;
-    font-size: variables.$font-s;
+    font-size: variables.$font-xs;
     height: min-content;
     border-radius: variables.$border-radius-m;
-    border: 1px solid variables.$grey;
     margin: variables.$spacing-3 variables.$spacing-3 variables.$spacing-3;
 
     &.wrapped {
@@ -24,10 +24,15 @@
 
     &:hover {
       background-color: variables.$light-grey;
+      border: 1px solid variables.$light-grey;
     }
   }
 
   @media (min-width: variables.$screen-m) {
     grid-template-columns: 10% 6% 10% 6% 10% 10% 6% 10% 6% 10% 6% 10%;
+
+    .note {
+      font-size: variables.$font-s;
+    }
   }
 }
