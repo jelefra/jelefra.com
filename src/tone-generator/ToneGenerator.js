@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import React from 'react';
 
 import Container from '.././Container';
 import Feedback from './Feedback';
@@ -11,6 +11,12 @@ import Widget from './widget';
 import styles from './toneGenerator.module.scss';
 
 const ToneGenerator = () => {
+  const [widgetsCount, setWidgetsCount] = useState(1);
+
+  const handleAddWidget = () => {
+    setWidgetsCount((widgetCount) => widgetCount + 1);
+  };
+
   return (
     <Container>
       <Helmet>
@@ -25,7 +31,12 @@ const ToneGenerator = () => {
         <Link to="/">← Home</Link>
         <div className={styles.toneGenerator}>
           <h1>Tone generator</h1>
-          <Widget />
+          {[...Array(widgetsCount)].map((_, index) => (
+            <Widget key={index} />
+          ))}
+          <button onClick={handleAddWidget} className={styles.buttonSecondary}>
+            Add a tone
+          </button>
           <Feedback />
           <Warning />
           <Instructions />
