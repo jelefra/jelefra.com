@@ -29,13 +29,27 @@ const displayBalance = (pan) => `${Math.trunc(100 * (1 - Number(pan)))}%`;
 
 const ToneGenerator = () => {
   const [audioContext, setAudioContext] = useState(null);
-  const [gainNode, setGainNode] = useState(null);
-  const [gain, setGain] = useState(0.7);
-  const [stereoPannerNode, setStereoPannerNode] = useState(null);
-  const [pan, setPan] = useState(0);
-  const [oscillatorNode, setOscillatorNode] = useState(null);
-  const [frequency, setFrequency] = useState(440);
-  const [waveform, setWaveform] = useState('sine');
+
+  const [tone, setTone] = useState({
+    frequency: 440,
+    gain: 0.7,
+    gainNode: undefined,
+    pan: 0,
+    stereoPannerNode: undefined,
+    waveform: 'sine',
+    oscillatorNode: undefined,
+  });
+
+  const {
+    frequency,
+    gain,
+    gainNode,
+    pan,
+    stereoPannerNode,
+    waveform,
+    oscillatorNode,
+  } = tone;
+
   const [modalVisibility, setModalVisibility] = useState(false);
 
   const minFrequency = 1;
@@ -51,28 +65,37 @@ const ToneGenerator = () => {
     if (gainNode) {
       gainNode.gain.value = Number(event.target.value);
     }
-    setGain(event.target.value);
+    setTone({
+      ...tone,
+      gain: event.target.value,
+    });
   };
 
   const handleChangeStereoPanner = (event) => {
     if (stereoPannerNode) {
       stereoPannerNode.pan.value = Number(event.target.value);
     }
-    setPan(event.target.value);
+    setTone({ ...tone, pan: event.target.value });
   };
 
   const handleChangeFrequency = (event) => {
     if (oscillatorNode) {
       oscillatorNode.frequency.value = event.target.value;
     }
-    setFrequency(Number(event.target.value));
+    setTone({
+      ...tone,
+      frequency: Number(event.target.value),
+    });
   };
 
   const handleChangeNote = (note) => {
     if (oscillatorNode) {
       oscillatorNode.frequency.value = frequencies[note];
     }
-    setFrequency(frequencies[note]);
+    setTone({
+      ...tone,
+      frequency: frequencies[note],
+    });
     handleModalVisibility();
   };
 
@@ -80,7 +103,10 @@ const ToneGenerator = () => {
     if (oscillatorNode) {
       oscillatorNode.frequency.value += increment;
     }
-    setFrequency((frequency) => frequency + increment);
+    setTone({
+      ...tone,
+      frequency: frequency + increment,
+    });
   };
 
   const handleModalVisibility = () => {
@@ -96,14 +122,17 @@ const ToneGenerator = () => {
   const createGainNode = (audioContext) => {
     const gainNode = audioContext.createGain();
     gainNode.gain.value = gain;
-    setGainNode(gainNode);
+    setTone((prevState) => ({ ...prevState, gainNode: gainNode }));
     return gainNode;
   };
 
   const createStereoPannerNode = (audioContext) => {
     const stereoPannerNode = audioContext.createStereoPanner();
     stereoPannerNode.pan.value = pan;
-    setStereoPannerNode(stereoPannerNode);
+    setTone((prevState) => ({
+      ...prevState,
+      stereoPannerNode: stereoPannerNode,
+    }));
     return stereoPannerNode;
   };
 
@@ -111,7 +140,7 @@ const ToneGenerator = () => {
     if (oscillatorNode) {
       oscillatorNode.type = value;
     }
-    setWaveform(value);
+    setTone({ ...tone, waveform: value });
   };
 
   const togglePlay = () => (oscillatorNode ? stopTone() : playTone());
@@ -135,7 +164,10 @@ const ToneGenerator = () => {
       oscillatorNode.start();
       gainNodeInstance.gain.setTargetAtTime(gain, audioCtx.currentTime, 0.3);
 
-      setOscillatorNode(oscillatorNode);
+      setTone((prevState) => ({
+        ...prevState,
+        oscillatorNode: oscillatorNode,
+      }));
     }
   };
 
@@ -143,8 +175,11 @@ const ToneGenerator = () => {
     if (oscillatorNode) {
       // Decrease gain gradually to prevent clicking sound
       gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.01);
-      setOscillatorNode(null);
-      setGainNode(null);
+      setTone((prevState) => ({
+        ...prevState,
+        oscillatorNode: null,
+        gainNode: null,
+      }));
     }
   };
 
