@@ -1,0 +1,29 @@
+@use '../../variables';
+
+.waveform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+
+  .buttonSecondary {
+    font-size: variables.$font-m;
+    background-color: variables.$lightest-grey;
+    padding: variables.$spacing-8;
+    border: 1px solid variables.$lightest-grey;
+    margin: variables.$spacing-13 auto;
+
+    &:hover:not(.active) {
+      border: 1px solid variables.$grey;
+    }
+
+    &.active {
+      background-color: variables.$light-grey;
+      border: 1px solid variables.$light-grey;
+    }
+  }
+
+  .waveformButton {
+    @extend .buttonSecondary;
+  }
+}

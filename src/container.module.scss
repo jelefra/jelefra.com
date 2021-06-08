@@ -3,9 +3,10 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: variables.$spacing-34 variables.$spacing-21;
+  padding: variables.$spacing-21 variables.$spacing-13;
 
   @media (min-width: variables.$screen-m) {
+    padding: variables.$spacing-34 variables.$spacing-21;
     max-width: variables.$screen-m;
   }
 }

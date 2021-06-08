@@ -1,0 +1,35 @@
+@use '../../variables';
+
+.balance {
+  display: grid;
+  grid-template-columns: 1fr 175px 1fr;
+  align-items: center;
+  margin: auto;
+
+  .left {
+    grid-column: 1 / span 1;
+    justify-self: end;
+    margin-right: variables.$spacing-5;
+
+    > span:first-child {
+      margin-right: variables.$spacing-5;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  .balanceRange {
+    grid-column: 2 / span 1;
+    margin: 0 variables.$spacing-8;
+  }
+
+  .right {
+    grid-column: 3 / span 1;
+    justify-self: start;
+    margin-left: variables.$spacing-5;
+
+    > span:first-child {
+      margin-left: variables.$spacing-5;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+}

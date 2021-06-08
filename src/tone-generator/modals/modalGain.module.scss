@@ -1,0 +1,24 @@
+@use '../../variables';
+
+.gain {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 175px 1fr;
+  align-items: center;
+
+  .volumeUp {
+    grid-column: 1 / span 1;
+    justify-self: end;
+    color: variables.$dark-grey;
+    margin-right: variables.$spacing-5;
+  }
+
+  .gainRange {
+    grid-column: 2 / span 1;
+  }
+
+  span {
+    font-variant-numeric: tabular-nums;
+    margin-left: variables.$spacing-5;
+  }
+}

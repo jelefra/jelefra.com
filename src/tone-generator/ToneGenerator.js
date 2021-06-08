@@ -6,7 +6,7 @@ import Container from '.././Container';
 import Feedback from './Feedback';
 import Instructions from './Instructions';
 import Warning from './Warning';
-import Widget from './widget';
+import Widget from './Widget';
 
 import styles from './toneGenerator.module.scss';
 
@@ -32,7 +32,7 @@ const ToneGenerator = () => {
         <div className={styles.toneGenerator}>
           <h1>Tone generator</h1>
           {[...Array(widgetsCount)].map((_, index) => (
-            <Widget key={index} />
+            <Widget key={index} multi={widgetsCount > 1} />
           ))}
           <button onClick={handleAddWidget} className={styles.buttonSecondary}>
             Add a tone

@@ -33,15 +33,11 @@
       }
     }
 
-    > div:nth-child(2) {
-      margin: auto 0;
-    }
-
     @media (min-width: variables.$screen-m) {
       width: 95%;
       max-width: 800px;
       height: auto;
-      padding: variables.$spacing-13;
+      padding: variables.$spacing-13 variables.$spacing-13 variables.$spacing-34;
       border-radius: variables.$border-radius-l;
 
       > div:first-child {
@@ -55,7 +51,7 @@
     @media (min-width: variables.$screen-l) {
       width: 90%;
       max-width: 850px;
-      padding: variables.$spacing-21;
+      padding: variables.$spacing-21 variables.$spacing-21 variables.$spacing-55;
     }
   }
 }

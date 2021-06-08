@@ -1,0 +1,73 @@
+@use '../variables';
+
+.widget {
+  display: grid;
+  grid-template-columns: auto min-content;
+  margin: variables.$spacing-34 0;
+  padding: variables.$spacing-5;
+  border: 1px solid variables.$light-grey;
+  border-radius: variables.$border-radius-m;
+
+  .frequency {
+    display: flex;
+    align-items: center;
+    margin: variables.$spacing-8;
+
+    .frequencyNumber {
+      display: flex;
+      align-items: center;
+      margin-right: variables.$spacing-8;
+
+      .frequencyNumberInput {
+        border: 1px solid variables.$grey;
+        border-radius: variables.$border-radius-m;
+        font-family: inherit;
+        font-size: variables.$font-l;
+        font-variant-numeric: tabular-nums;
+        width: 95px;
+        margin-right: variables.$spacing-2;
+        padding-right: variables.$spacing-8;
+        text-align: right;
+      }
+    }
+
+    .frequencyRange {
+      width: 100%;
+
+      .frequencyRangeInput {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+
+  .play {
+    grid-column-start: 2;
+    grid-row: 1 / span 2;
+    border: none;
+    background: transparent;
+    color: variables.$dark-grey;
+    padding: variables.$spacing-2 0;
+    margin: variables.$spacing-8;
+
+    &:hover {
+      color: variables.$grey;
+    }
+  }
+
+  .settings {
+    margin: variables.$spacing-8;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+      margin: 0;
+      font-size: variables.$font-s;
+      background-color: variables.$lighter-grey;
+      padding: variables.$spacing-5 variables.$spacing-8;
+      border: transparent;
+    }
+  }
+}

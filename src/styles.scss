@@ -56,6 +56,48 @@ body {
     display: block;
   }
 
+  input[type=range] {
+    -webkit-appearance: none;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -11px;
+  }
+
+  @mixin thumb() {
+    border: 1px solid variables.$black;
+    height: 30px;
+    width: 13px;
+    border-radius: variables.$border-radius-m;
+    background: variables.$white;
+    cursor: ew-resize;
+  }
+
+  @mixin track() {
+    height: 8px;
+    cursor: pointer;
+    background: variables.$light-blue;
+  }
+
+  input {
+    &::-webkit-slider-thumb {
+      @include thumb;
+    }
+
+    &::-moz-range-thumb {
+      @include thumb;
+    }
+
+    &::-webkit-slider-runnable-track {
+      @include track;
+    }
+
+    &::-moz-range-track {
+      @include track;
+    }
+  }
+
   // Prevent content layout shifts on JavaScript load
   .svg-inline--fa {
     height: 1em;
