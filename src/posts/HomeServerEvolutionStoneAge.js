@@ -18,7 +18,7 @@ const Post = () => {
       <Link to="/" className={styles.backTop}>
         ← Home
       </Link>
-      <span>18 June 2021</span>
+      <time dateTime="2021-06-18 12:00">18 June 2021</time>
       <article className={styles.article}>
         <h1>A home server evolution: the stone age</h1>
         <p>
