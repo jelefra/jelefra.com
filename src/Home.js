@@ -17,7 +17,7 @@ const Home = () => (
     </Helmet>
     <main>
       <p>Hi, my name is</p>
-      <h1>Jeremy Le François.</h1>
+      <h1 className={styles.title}>Jeremy Le François.</h1>
       <p>I&apos;m a software engineer based in London.</p>
       <p>
         Currently I work at Trainline on delivering fast web pages that are
@@ -27,6 +27,15 @@ const Home = () => (
       <ul>
         <li>
           <Link to="/tone-generator/">Tone generator</Link>
+        </li>
+      </ul>
+      <h2>Posts</h2>
+      <ul>
+        <li>
+          <Link to="/home-server-evolution-stone-age/">
+            A home server evolution: the stone age
+          </Link>{' '}
+          (18 June 2021)
         </li>
       </ul>
     </main>

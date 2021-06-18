@@ -1,5 +1,9 @@
 @use 'variables';
 
+.title {
+  margin: variables.$spacing-8 0;
+}
+
 .footer {
   margin: variables.$spacing-34 0;
   text-align: center;

@@ -15,7 +15,12 @@ module.exports = merge(common, {
   },
   plugins: [
     new StaticSiteGeneratorPlugin({
-      paths: ['/', '/404.html', '/tone-generator/'],
+      paths: [
+        '/',
+        '/404.html',
+        '/tone-generator/',
+        '/home-server-evolution-stone-age/',
+      ],
     }),
   ],
 });
