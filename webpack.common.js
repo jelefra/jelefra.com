@@ -63,6 +63,21 @@ module.exports = {
             'src/posts/21-06-18-homeServerEvolutionStoneAge/raspberry-pi-1x.jpg',
           to: 'home-server-evolution-stone-age/raspberry-pi-1x.jpg',
         },
+        {
+          from:
+            'src/posts/21-06-18-homeServerEvolutionStoneAge/raspberry-pi-mobile.avif',
+          to: 'home-server-evolution-stone-age/raspberry-pi-mobile.avif',
+        },
+        {
+          from:
+            'src/posts/21-06-18-homeServerEvolutionStoneAge/raspberry-pi-2x.avif',
+          to: 'home-server-evolution-stone-age/raspberry-pi-2x.avif',
+        },
+        {
+          from:
+            'src/posts/21-06-18-homeServerEvolutionStoneAge/raspberry-pi-1x.avif',
+          to: 'home-server-evolution-stone-age/raspberry-pi-1x.avif',
+        },
       ],
     }),
   ],

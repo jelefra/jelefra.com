@@ -23,9 +23,15 @@ const Post = () => {
         <h1>A home server evolution: the stone age</h1>
         <picture>
           <source
+            type="image/avif"
+            media="(min-width: 768px)"
+            srcSet="./raspberry-pi-1x.avif, ./raspberry-pi-2x.avif 2x"
+          />
+          <source
             media="(min-width: 768px)"
             srcSet="./raspberry-pi-1x.jpg, ./raspberry-pi-2x.jpg 2x"
           />
+          <source type="image/avif" srcSet="./raspberry-pi-mobile.avif" />
           <img
             src="./raspberry-pi-mobile.jpg"
             className={styles.hero}
