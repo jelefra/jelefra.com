@@ -48,6 +48,21 @@ module.exports = {
         { from: 'static/icon-192.png', to: 'icon-192.png' },
         { from: 'static/icon-512.png', to: 'icon-512.png' },
         { from: 'static/apple-touch-icon.png', to: 'apple-touch-icon.png' },
+        {
+          from:
+            'src/posts/21-06-18-homeServerEvolutionStoneAge/raspberry-pi-mobile.jpg',
+          to: 'home-server-evolution-stone-age/raspberry-pi-mobile.jpg',
+        },
+        {
+          from:
+            'src/posts/21-06-18-homeServerEvolutionStoneAge/raspberry-pi-2x.jpg',
+          to: 'home-server-evolution-stone-age/raspberry-pi-2x.jpg',
+        },
+        {
+          from:
+            'src/posts/21-06-18-homeServerEvolutionStoneAge/raspberry-pi-1x.jpg',
+          to: 'home-server-evolution-stone-age/raspberry-pi-1x.jpg',
+        },
       ],
     }),
   ],

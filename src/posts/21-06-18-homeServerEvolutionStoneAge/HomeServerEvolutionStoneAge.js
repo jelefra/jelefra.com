@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-import Container from '../Container';
+import Container from '../../Container';
 import styles from './homeServerEvolutionStoneAge.module.scss';
 
 const Post = () => {
@@ -21,6 +21,17 @@ const Post = () => {
       <time dateTime="2021-06-18 12:00">18 June 2021</time>
       <article className={styles.article}>
         <h1>A home server evolution: the stone age</h1>
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcSet="./raspberry-pi-1x.jpg, ./raspberry-pi-2x.jpg 2x"
+          />
+          <img
+            src="./raspberry-pi-mobile.jpg"
+            className={styles.hero}
+            alt="Photo of a Raspberry Pi"
+          />
+        </picture>
         <p>
           If money wasn&apos;t a factor, I would splash some cash on a nice NAS
           and that would probably be the end of my home server journey.

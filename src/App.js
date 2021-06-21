@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 import React from 'react';
 
 import Home from './Home';
-import HomeServerEvolutionStoneAge from './posts/HomeServerEvolutionStoneAge';
+import HomeServerEvolutionStoneAge from './posts/21-06-18-homeServerEvolutionStoneAge/HomeServerEvolutionStoneAge';
 import PageNotFound from './404';
 import ToneGenerator from './tone-generator/ToneGenerator';
 

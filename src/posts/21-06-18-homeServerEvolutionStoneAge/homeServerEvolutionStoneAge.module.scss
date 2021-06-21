@@ -1,4 +1,4 @@
-@use '../variables';
+@use '../../variables';
 
 .backTop {
   display: block;
@@ -6,7 +6,11 @@
 }
 
 .article {
-  margin: variables.$spacing-34 0;
+  margin: variables.$spacing-21 0;
+
+  .hero {
+    width: 100%;
+  }
 
   .listDisc {
     list-style-type: disc;
