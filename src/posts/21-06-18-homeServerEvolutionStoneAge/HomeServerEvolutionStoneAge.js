@@ -14,6 +14,19 @@ const Post = () => {
           name="description"
           content="How to use an old Raspberry Pi as a Samba server to share files on the network and take advantage of DLNA to play videos on a smart TV."
         />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org/',
+            '@type': 'BlogPosting',
+            datePublished: '2021-06-18',
+            headline: 'A home server evolution: the stone age',
+            image: [
+              'https://jelefra.com/img/raspberry-pi-1x1.jpg',
+              'https://jelefra.com/img/raspberry-pi-4x3.jpg',
+              'https://jelefra.com/img/raspberry-pi-16x9.jpg',
+            ],
+          })}
+        </script>
       </Helmet>
       <Link to="/" className={styles.backTop}>
         ← Home

@@ -78,6 +78,18 @@ module.exports = {
             'src/posts/21-06-18-homeServerEvolutionStoneAge/raspberry-pi-1x.avif',
           to: 'home-server-evolution-stone-age/raspberry-pi-1x.avif',
         },
+        {
+          from: 'static/img/raspberry-pi-1x1.jpg',
+          to: 'img/raspberry-pi-1x1.jpg',
+        },
+        {
+          from: 'static/img/raspberry-pi-4x3.jpg',
+          to: 'img/raspberry-pi-4x3.jpg',
+        },
+        {
+          from: 'static/img/raspberry-pi-16x9.jpg',
+          to: 'img/raspberry-pi-16x9.jpg',
+        },
       ],
     }),
   ],
