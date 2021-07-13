@@ -48,7 +48,6 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'static'),
-          globOptions: { ignore: ['**/original/**'] },
         },
         {
           from: '**/*.{jpg,avif}',
