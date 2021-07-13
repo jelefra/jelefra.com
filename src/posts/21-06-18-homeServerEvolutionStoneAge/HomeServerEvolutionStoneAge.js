@@ -21,9 +21,9 @@ const Post = () => {
             datePublished: '2021-06-18',
             headline: 'A home server evolution: the stone age',
             image: [
-              'https://jelefra.com/img/raspberry-pi-1x1.jpg',
-              'https://jelefra.com/img/raspberry-pi-4x3.jpg',
-              'https://jelefra.com/img/raspberry-pi-16x9.jpg',
+              'https://jelefra.com/home-server-evolution-stone-age/raspberry-pi-1x1.jpg',
+              'https://jelefra.com/home-server-evolution-stone-age/raspberry-pi-4x3.jpg',
+              'https://jelefra.com/home-server-evolution-stone-age/raspberry-pi-16x9.jpg',
             ],
           })}
         </script>
