@@ -2,6 +2,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const getCamelCasePostName = (absoluteFilename) =>
+  absoluteFilename.match(/\d\d-\d\d-\d\d-(\w+)/)[1];
+
+const kebabise = (str) =>
+  str.replace(/[A-Z]/g, (match) => '-' + match.toLowerCase());
+
 module.exports = {
   entry: './src/index.js',
   module: {
@@ -46,13 +52,12 @@ module.exports = {
         },
         {
           from: '**/*.{jpg,avif}',
-          to: 'home-server-evolution-stone-age',
-          context: path.resolve(
-            __dirname,
-            'src',
-            'posts',
-            '21-06-18-homeServerEvolutionStoneAge'
-          ),
+          to({ absoluteFilename }) {
+            const camelCasePostName = getCamelCasePostName(absoluteFilename);
+            const kebabCasePostName = kebabise(camelCasePostName);
+            return kebabCasePostName + '/[name][ext]';
+          },
+          context: path.resolve(__dirname, 'src', 'posts'),
         },
       ],
     }),
