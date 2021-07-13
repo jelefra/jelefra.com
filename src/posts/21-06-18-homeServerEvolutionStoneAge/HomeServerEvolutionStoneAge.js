@@ -19,12 +19,30 @@ const Post = () => {
             '@context': 'https://schema.org/',
             '@type': 'BlogPosting',
             datePublished: '2021-06-18',
+            dateModified: '2021-06-18',
             headline: 'A home server evolution: the stone age',
             image: [
               'https://jelefra.com/home-server-evolution-stone-age/raspberry-pi-1x1.jpg',
               'https://jelefra.com/home-server-evolution-stone-age/raspberry-pi-4x3.jpg',
               'https://jelefra.com/home-server-evolution-stone-age/raspberry-pi-16x9.jpg',
             ],
+            author: {
+              '@type': 'Person',
+              name: 'Jeremy Le François',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Jeremy Le François',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://jelefra.com/icon-512.png',
+                width: '512',
+                height: '512',
+              },
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+            },
           })}
         </script>
       </Helmet>
