@@ -64,8 +64,8 @@ const Post = () => {
           />
           <source type="image/avif" srcSet="./raspberry-pi-mobile.avif" />
           <img
-            width="750"
-            height="469"
+            width="768"
+            height="480"
             src="./raspberry-pi-mobile.jpg"
             className={styles.hero}
             alt="Photo of a Raspberry Pi"
