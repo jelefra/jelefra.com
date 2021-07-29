@@ -2,11 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const getCamelCasePostName = (absoluteFilename) =>
-  absoluteFilename.match(/\d\d-\d\d-\d\d-(\w+)/)[1];
-
-const kebabise = (str) =>
-  str.replace(/[A-Z]/g, (match) => '-' + match.toLowerCase());
+const getPostPath = (absoluteFilename) =>
+  absoluteFilename.match(/\d\d-\d\d-\d\d-([^/]+)/)[1];
 
 module.exports = {
   entry: './src/index.js',
@@ -52,9 +49,8 @@ module.exports = {
         {
           from: '**/*.{jpg,avif}',
           to({ absoluteFilename }) {
-            const camelCasePostName = getCamelCasePostName(absoluteFilename);
-            const kebabCasePostName = kebabise(camelCasePostName);
-            return kebabCasePostName + '/[name][ext]';
+            const postPath = getPostPath(absoluteFilename);
+            return postPath + '/[name][ext]';
           },
           context: path.resolve(__dirname, 'src', 'posts'),
         },
