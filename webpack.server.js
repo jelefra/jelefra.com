@@ -20,6 +20,7 @@ module.exports = merge(common, {
         '/404.html',
         '/tone-generator/',
         '/home-server-evolution-stone-age/',
+        '/writing-css-for-print/',
       ],
     }),
   ],

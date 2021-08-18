@@ -37,6 +37,10 @@ const Home = () => (
           </Link>{' '}
           (18 June 2021)
         </li>
+        <li>
+          <Link to="/writing-css-for-print/">Writing CSS for print</Link> (18
+          August 2021)
+        </li>
       </ul>
     </main>
     <footer className={styles.footer}>

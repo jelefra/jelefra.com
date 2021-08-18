@@ -47,7 +47,7 @@ module.exports = {
           from: path.resolve(__dirname, 'static'),
         },
         {
-          from: '**/*.{jpg,avif}',
+          from: '**/*.{jpg,avif,png}',
           to({ absoluteFilename }) {
             const postPath = getPostPath(absoluteFilename);
             return postPath + '/[name][ext]';
