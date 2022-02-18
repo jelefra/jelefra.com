@@ -1,0 +1,39 @@
+@use '../../variables';
+
+.backTop {
+  display: block;
+  margin-bottom: variables.$spacing-13;
+}
+
+.article {
+  margin: variables.$spacing-21 0;
+
+  table {
+    margin: variables.$spacing-21;
+  }
+
+  th,
+  td {
+    padding: variables.$spacing-5 variables.$spacing-21;
+  }
+
+  .listDisc {
+    list-style-type: disc;
+  }
+
+  .code {
+    font-family: variables.$font-mono;
+    padding: variables.$spacing-5;
+    background: variables.$lightest-grey;
+    border-radius: variables.$border-radius-s;
+  }
+
+  .block {
+    display: block;
+  }
+}
+
+.backBottom {
+  display: block;
+  margin-top: variables.$spacing-13;
+}

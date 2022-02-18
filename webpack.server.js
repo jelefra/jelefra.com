@@ -21,6 +21,7 @@ module.exports = merge(common, {
         '/tone-generator/',
         '/home-server-evolution-stone-age/',
         '/writing-css-for-print/',
+        '/home-server-evolution-modern-times/',
       ],
     }),
   ],
